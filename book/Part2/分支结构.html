@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>分支结构</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.\.\mdbook-admonish.css">
+        <link rel="stylesheet" href="../src/css/style.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../GDScript.html">GDScript 零基础图文入门</a></li><li class="chapter-item expanded "><a href="../ABOUT.html"><strong aria-hidden="true">1.</strong> 关于本文</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 开始</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part1/什么是编程.html"><strong aria-hidden="true">2.1.</strong> 什么是编程</a></li><li class="chapter-item expanded "><a href="../Part1/第一句代码.html"><strong aria-hidden="true">2.2.</strong> 第一句代码</a></li><li class="chapter-item expanded "><a href="../Part1/脚本结构.html"><strong aria-hidden="true">2.3.</strong> 脚本结构</a></li><li class="chapter-item expanded "><a href="../Part1/后续预告.html"><strong aria-hidden="true">2.4.</strong> 后续预告</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础语法</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part2/变量.html"><strong aria-hidden="true">3.1.</strong> 变量</a></li><li class="chapter-item expanded "><a href="../Part2/数据类型.html"><strong aria-hidden="true">3.2.</strong> 数据类型</a></li><li class="chapter-item expanded "><a href="../Part2/表达式与运算符.html"><strong aria-hidden="true">3.3.</strong> 表达式与运算符</a></li><li class="chapter-item expanded "><a href="../Part2/整活：你好XXX.html"><strong aria-hidden="true">3.4.</strong> 整活：你好XXX</a></li><li class="chapter-item expanded "><a href="../Part2/代码块.html"><strong aria-hidden="true">3.5.</strong> 代码块</a></li><li class="chapter-item expanded "><a href="../Part2/分支结构.html" class="active"><strong aria-hidden="true">3.6.</strong> 分支结构</a></li><li class="chapter-item expanded "><a href="../Part2/作用域.html"><strong aria-hidden="true">3.7.</strong> 作用域</a></li><li class="chapter-item expanded "><a href="../Part2/整活：狐狸彩票.html"><strong aria-hidden="true">3.8.</strong> 整活：狐狸彩票</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> 循环</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.10.</strong> 数组</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.11.</strong> 遍历</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.12.</strong> 整活：你的 Steam 愿望单</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 对象</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> 方法</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.1.</strong> 参数</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.2.</strong> 返回值</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> 类</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.1.</strong> 成员</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.2.</strong> 实例</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.3.</strong> 静态</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> 整活：玩家移动</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> 继承</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> 重写</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> 多态</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.7.</strong> 整活：更换武器</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.8.</strong> 信号</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.9.</strong> 整活：更换武器的UI提示</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> GDScript 实践</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> 生命周期</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> 节点操作</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> 整活：Fire!</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> 碰撞检测</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> 整活：分数</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> 整活：敌人</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> 射线检测</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> 整活：敌人视野</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.9.</strong> 强类型注解</div></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="分支结构"><a class="header" href="#分支结构">分支结构</a></h1>
+<p>我们之前写的代码其实并没有什么逻辑可言，它们只会按照顺序一行行执行而已。</p>
+<p>在真正的游戏中有很多<strong>分支</strong>，例如玩家与 NPC 对话时，如果完成了任务，NPC 就会给玩家奖励，否则 NPC 就会告诉玩家一些任务提示。这里的<strong>任务是否完成</strong>就是一个分支条件。</p>
+<h2 id="如果"><a class="header" href="#如果">如果</a></h2>
+<p>在程序中使用关键字 <code>if</code> 来表示分支，它的语法格式如下：</p>
+<pre><code>if &lt;逻辑表达式&gt; :
+    &lt;代码块&gt;
+</code></pre>
+<p>if 可以直接理解成汉语中的<strong>如果</strong>，当逻辑表达式的值为 <code>true</code> 时就会执行下面的代码块，否则就不执行。</p>
+<p>其中的逻辑表达式就是指一条运算结果为逻辑值的式子，现在假设咱有个变量 <code>var 任务完成数 = 10</code> 来表示当前完成了几个任务，当完成 20 个任务时显示恭喜通关：</p>
+<pre><code class="language-python">func _ready():
+    var 任务完成数 = 10
+    if 任务完成数 &gt;= 20:
+        print(&quot;恭喜通关了&quot;)
+</code></pre>
+<p>目前运行游戏的话你会发现什么也没有显示，毕竟<code>任务完成数</code>现在是10，if 后面的条件不满足，也就不会执行里面的代码。当然你可以手动把变量值改成 20 以上的数字再试试。</p>
+<h2 id="否则"><a class="header" href="#否则">否则</a></h2>
+<p>现在想完善一下刚才的程序，在任务完成数量不达标时提示玩家需要完成更多任务，那么以目前学到的知识，我们可以写成这样：</p>
+<pre><code class="language-python">func _ready():
+    var 任务完成数 = 10
+    if 任务完成数 &gt;= 20:
+        print(&quot;恭喜通关了&quot;)
+    if 任务完成数 &lt; 20:
+        print(&quot;完成的任务还不够多&quot;)
+</code></pre>
+<p>这样虽然可以实现效果，但是我们可以发现两个 if 的条件语句正好相反，这时可以把第二个 if 语句替换成 <code>else</code> 语句：</p>
+<pre><code class="language-python">if 任务完成数 &gt;= 20:
+    print(&quot;恭喜通关了&quot;)
+else:
+    print(&quot;完成的任务还不够多&quot;)
+</code></pre>
+<p>很明显这个 <code>else</code> 就是<strong>否则</strong>的意思，当上一个 if 条件不满足时则执行。</p>
+<h2 id="否则-如果"><a class="header" href="#否则-如果">否则-如果</a></h2>
+<p>现在我们想让这个例子更复杂一些，具体规则如下：</p>
+<ul>
+<li>当完成 20 个任务时显示 <strong>恭喜通关</strong></li>
+<li>完成 15-19 个任务时显示 <strong>马上就完成了</strong></li>
+<li>完成 5-14 个任务时显示 <strong>加油</strong></li>
+<li>完成 5 个以下时显示 <strong>这才刚刚开始</strong></li>
+</ul>
+<p>于是我们可以写出：</p>
+<pre><code class="language-python">if 任务完成数 &gt;= 20:
+    print(&quot;恭喜通关&quot;)
+else:
+    if 任务完成数 &gt;= 15:
+        print(&quot;马上就完成了&quot;)
+    else:
+        if 任务完成数 &gt;= 5:
+            print(&quot;加油&quot;)
+        else:
+            print(&quot;这才刚刚开始&quot;)
+</code></pre>
+<p>这一层一层的 else 语句看起来实在是不好看，那么再认识一个新的关键字：<code>elif</code></p>
+<p><code>elif</code> 就是 else 和 if 的组合形式，它会在上一个 if 的条件不满足时判断自身条件，如果自身条件满足则执行自己的代码，同时 <code>elif</code> 可以多个串联使用。</p>
+<p>修改之前的代码，使用 <code>elif</code> 语句的结果如下：</p>
+<pre><code class="language-python">if 任务完成数 &gt;= 20:
+    print(&quot;恭喜通关&quot;)
+elif 任务完成数 &gt;= 15:
+    print(&quot;马上就完成了&quot;)
+elif 任务完成数 &gt;= 5:
+    print(&quot;加油&quot;)
+else:
+    print(&quot;这才刚刚开始&quot;)
+</code></pre>
+<hr />
+<blockquote>
+<p>[!tip] 条件判断可以避免重复</p>
+<p>想想我们的条件中提到的是<strong>15-19</strong>个任务显示<strong>马上就完成了</strong>，但为什么我们的 if 和 elif 后面之判断了 <code>任务完成数 &gt;= 15</code> 呢？</p>
+<p>这里就要想一下 else 和 elif 的一个特点：<strong>只有在上一个 if 或 elif 的条件不满足时才判断。</strong></p>
+<p>由于第一个 if 已经判断了 <code>任务完成数 &gt;= 20</code> 的情况，那么下面的所有 elif 和 else 中的<code>任务完成数</code>就不可能包含 20，所以我们就只判断 <code>&gt;= 15</code> 即可。</p>
+</blockquote>
+<blockquote>
+<p>[!tip] bool 值变量可以直接放到表达式里</p>
+<p>一个变量也可以组成表达式，假设有个变量 <code>var a = true</code>，想判断 a 是否是 true 时千万不要写 <code>if a == true</code>，直接写 <code>if a</code> 即可。（<del>虽然写成第一种也不会出错，但就是会显得自己编程水平不好......</del>）</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Part2/代码块.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../Part2/作用域.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Part2/代码块.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../Part2/作用域.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../src/js/style.js"></script>
+
+
+    </div>
+    </body>
+</html>

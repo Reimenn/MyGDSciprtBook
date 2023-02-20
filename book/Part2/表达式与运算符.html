@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>表达式与运算符</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.\.\mdbook-admonish.css">
+        <link rel="stylesheet" href="../src/css/style.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../GDScript.html">GDScript 零基础图文入门</a></li><li class="chapter-item expanded "><a href="../ABOUT.html"><strong aria-hidden="true">1.</strong> 关于本文</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 开始</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part1/什么是编程.html"><strong aria-hidden="true">2.1.</strong> 什么是编程</a></li><li class="chapter-item expanded "><a href="../Part1/第一句代码.html"><strong aria-hidden="true">2.2.</strong> 第一句代码</a></li><li class="chapter-item expanded "><a href="../Part1/脚本结构.html"><strong aria-hidden="true">2.3.</strong> 脚本结构</a></li><li class="chapter-item expanded "><a href="../Part1/后续预告.html"><strong aria-hidden="true">2.4.</strong> 后续预告</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础语法</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part2/变量.html"><strong aria-hidden="true">3.1.</strong> 变量</a></li><li class="chapter-item expanded "><a href="../Part2/数据类型.html"><strong aria-hidden="true">3.2.</strong> 数据类型</a></li><li class="chapter-item expanded "><a href="../Part2/表达式与运算符.html" class="active"><strong aria-hidden="true">3.3.</strong> 表达式与运算符</a></li><li class="chapter-item expanded "><a href="../Part2/整活：你好XXX.html"><strong aria-hidden="true">3.4.</strong> 整活：你好XXX</a></li><li class="chapter-item expanded "><a href="../Part2/代码块.html"><strong aria-hidden="true">3.5.</strong> 代码块</a></li><li class="chapter-item expanded "><a href="../Part2/分支结构.html"><strong aria-hidden="true">3.6.</strong> 分支结构</a></li><li class="chapter-item expanded "><a href="../Part2/作用域.html"><strong aria-hidden="true">3.7.</strong> 作用域</a></li><li class="chapter-item expanded "><a href="../Part2/整活：狐狸彩票.html"><strong aria-hidden="true">3.8.</strong> 整活：狐狸彩票</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> 循环</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.10.</strong> 数组</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.11.</strong> 遍历</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.12.</strong> 整活：你的 Steam 愿望单</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 对象</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> 方法</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.1.</strong> 参数</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.2.</strong> 返回值</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> 类</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.1.</strong> 成员</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.2.</strong> 实例</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.3.</strong> 静态</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> 整活：玩家移动</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> 继承</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> 重写</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> 多态</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.7.</strong> 整活：更换武器</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.8.</strong> 信号</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.9.</strong> 整活：更换武器的UI提示</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> GDScript 实践</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> 生命周期</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> 节点操作</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> 整活：Fire!</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> 碰撞检测</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> 整活：分数</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> 整活：敌人</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> 射线检测</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> 整活：敌人视野</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.9.</strong> 强类型注解</div></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="表达式与运算符"><a class="header" href="#表达式与运算符">表达式与运算符</a></h1>
+<p>表达式是由一些值和运算符组成的式子，例如 <code>10 + 2</code> 这种。</p>
+<p>GDScript 中表达式分为这么几类：</p>
+<ul>
+<li>算数表达式</li>
+<li>关系表达式</li>
+<li>逻辑表达式</li>
+<li>赋值表达式</li>
+</ul>
+<h2 id="算术表达式"><a class="header" href="#算术表达式">算术表达式</a></h2>
+<p>顾名思义，算是表达式就是指数学运算的式子，例如 <code>5 + 2</code> <code>100 * 0.5</code> 等，运算符有这些：</p>
+<ul>
+<li><code>+</code> 加</li>
+<li><code>-</code> 减</li>
+<li><code>*</code> 乘</li>
+<li><code>/</code> 除</li>
+<li><code>%</code> 求余（取模）</li>
+</ul>
+<p>最后一个取余数可能有点忘了是什么，其实就是小学二年级还没学小数的时候，“两个数除不尽”剩下的那个数，例如：</p>
+<pre><code class="language-python">print(10 % 3) # 显示 1，因为 10 / 3 商 3 余 1
+print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
+</code></pre>
+<p>同时不要忘记先算乘除后算加减，必要时使用括号改变运算顺序：</p>
+<pre><code class="language-python">((10 + 4) * 2 - 8) * 2
+</code></pre>
+<p>不要轻视这个小学知识点，在修改代码时可能会忘记前后的符号导致运算优先级出错，这种 bug 找起来十分麻烦。</p>
+<blockquote>
+<p>[!tip] % 的优先级</p>
+<p>是先求余还是先加减乘除？哈哈，我不告诉你。</p>
+<p>当你的式子很长时，建议用一个临时变量保存一下中间结果，保证编程思路的清晰比什么都重要。</p>
+<p>如果真的要在式子里混合求余运算符呢？那就加括号呗。</p>
+<p>（<del>我写了七八年代码也没记住 % 的优先级，毕竟没有必要记住</del>）</p>
+</blockquote>
+<blockquote>
+<p>[!tip] 负数</p>
+<p>直接在数字或变量前加一个减号即可表示负数，例如 <code>print(-10)</code>，或是先 <code>var a = 1</code> 再 <code>print(-a)</code> 即可显示 <code>-1</code></p>
+</blockquote>
+<blockquote>
+<p>[!tip] 字符串拼接</p>
+<p>加号 + 的两侧若为字符串，还表示字符串拼接，例如 <code>var a = &quot;a&quot; + &quot;b&quot;</code>，那么 a 里面就会存放 <code>ab</code> 这两个字符。</p>
+</blockquote>
+<h2 id="关系表达式"><a class="header" href="#关系表达式">关系表达式</a></h2>
+<p>关系表达式的运算符如下：</p>
+<ul>
+<li><code>&gt;</code> 大于</li>
+<li><code>&lt;</code> 小于</li>
+<li><code>&gt;=</code> 大于等于</li>
+<li><code>&lt;=</code> 小于等于</li>
+<li><code>==</code> 等于</li>
+<li><code>!=</code> 不等于</li>
+</ul>
+<p>这些应该也没什么好讲的，那么看一句代码：</p>
+<pre><code class="language-python">print(10 &gt; 9)
+</code></pre>
+<p>嗯，很简单，可是......它会显示什么呢？</p>
+<p>这时要了解关系表达式的一个特点：它的结果是布尔值，也就是 true 或 false。</p>
+<p>因为 <code>10 &gt; 9</code> 这是个正确的不等式，所以结果是 true，假如有一句 <code>print(10 == 9)</code>，那么这就会显示 <code>false</code> 了。</p>
+<h2 id="逻辑表达式"><a class="header" href="#逻辑表达式">逻辑表达式</a></h2>
+<p>逻辑表达式的运算符有这些：</p>
+<ul>
+<li><code>not</code> 非（否）</li>
+<li><code>and</code> 与（同时为 true）</li>
+<li><code>or</code> 或（任意为 true）</li>
+</ul>
+<p>乍一看比较蒙，根据括号里的词语理解一下，这三个运算符是对布尔值进行计算的。</p>
+<p>第一个 <code>not</code> 是一个一元运算符，它只对一个数据进行操作，写在被操作数的前面，例如 <code>not false</code> 就表示 <code>true</code>。</p>
+<p><code>and</code> 运算符只有在两侧都为 <code>true</code> 时结果才是 <code>true</code>，否则结果一律为 <code>false</code></p>
+<p><code>or</code> 与 <code>and</code> 相反，两侧都为 <code>false</code> 结果才是 <code>false</code>，否则结果为 <code>true</code>。或者理解成只要有一个 <code>true</code>，结果就是 <code>true</code>。</p>
+<h2 id="赋值运算符"><a class="header" href="#赋值运算符">赋值运算符</a></h2>
+<p>我们一直看到的等于号 <code>=</code> 其实就是一个赋值运算符，它的作用就是把右边的值放到左边的变量中。</p>
+<p>其他的常用赋值运算符还有 <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code>，他们分别表示根据变量中原有的值进行相对运算并保存到变量中，例如：</p>
+<pre><code class="language-python">var a = 10
+a += 10  # a 在原来的基础上又加了10，变成了20
+a *= 2   # 由于上一句代码，a已经是20了，再乘上2，就变成了40
+a /= 10  # 40 / 10 得到 4，a变成了4
+print(a) # 显示 4
+</code></pre>
+<h2 id="多种运算符混合计算"><a class="header" href="#多种运算符混合计算">多种运算符混合计算</a></h2>
+<p>我们貌似已经发现了规律：</p>
+<ul>
+<li>数学运算符的参数是数字，结果是数字</li>
+<li>关系运算符的参数是数字，结果是布尔值</li>
+<li>逻辑运算符的参数是布尔值，结果是布尔值</li>
+</ul>
+<p>所以，当上述多种运算符组合在一起时，会先运算数学运算符，接着是关系运算符，然后运行逻辑运算符，当然最后是赋值运算符。</p>
+<blockquote>
+<p>[!tip] 等于和不等于</p>
+<p><code>==</code> 和 <code>!=</code> 两侧的值不一定是数字，例如 <code>&quot;Abc&quot; == &quot;Abc&quot;</code> 的结果是 <code>true</code>，<code>&quot;123&quot; == 123</code> 的结果是 <code>false</code>。</p>
+</blockquote>
+<h2 id="综合例子"><a class="header" href="#综合例子">综合例子</a></h2>
+<p>现在来测一测自己，下面这段代码的每个 print 会显示什么？</p>
+<pre><code class="language-go">print(5 - 3 &lt; 10)
+var a = 100
+print(a &gt;= 100 and false)
+a -= 99
+a *= 10
+print(a + 10)
+</code></pre>
+<p>答案在下面</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<blockquote>
+<p>true</p>
+<p>false</p>
+<p>20</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Part2/数据类型.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../Part2/整活：你好XXX.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Part2/数据类型.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../Part2/整活：你好XXX.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../src/js/style.js"></script>
+
+
+    </div>
+    </body>
+</html>

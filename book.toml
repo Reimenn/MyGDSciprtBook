@@ -17,3 +17,4 @@ assets_version = "2.0.0" # do not edit: managed by `mdbook-admonish install`
 default-theme = "light"
 additional-css = ['.\.\mdbook-admonish.css','src/css/style.css']
 additional-js = ['src/js/style.js']
+git-repository-url = "https://github.com/Reimenn/MyGDSciprtBook"

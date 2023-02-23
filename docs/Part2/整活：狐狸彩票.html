@@ -118,6 +118,9 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        <a href="https://github.com/Reimenn/MyGDSciprtBook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
 
                     </div>
                 </div>
@@ -213,9 +216,11 @@ func _on_button_pressed():
 		if a赌对了 and b赌对了:
 			$Label2.text += &quot;全猜对了！奖金 3000&quot;
 			钱包 += 3000
+			$Label3.text = &quot;钱包：&quot; + str(钱包)
 		elif a赌对了 or b赌对了:
 			$Label2.text += &quot;猜对一个，奖金 300&quot;
 			钱包 += 300
+			$Label3.text = &quot;钱包：&quot; + str(钱包)
 		else:
 			$Label2.text += &quot;你一分钱也没赚到&quot;
 	else: # 穷了

@@ -149,7 +149,7 @@
                     <main>
                         <h1 id="作用域"><a class="header" href="#作用域">作用域</a></h1>
 <p>我们来看一段代码：</p>
-<pre><code class="language-python">var a = 10
+<pre><code class="language-gdscript">var a = 10
 if a &gt; 0:
     var b = 6
 print(b)
@@ -161,7 +161,7 @@ print(b)
 <p>规则只有一条：<strong>内层代码块可以访问外层代码块的变量，但反之不行。</strong></p>
 <p>上例中，<code>var b = 6</code> 这一句话就是在 if 的内层作用域当中的，而在 if 之外的 <code>print(b)</code> 在位外层作用域，就不能访问内层的变量。</p>
 <p>现在修改代码：</p>
-<pre><code class="language-python">var a = 10
+<pre><code class="language-gdscript">var a = 10
 if a &gt; 0:
     var b = 6
     print(a)

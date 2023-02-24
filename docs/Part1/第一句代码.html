@@ -149,7 +149,7 @@
                     <main>
                         <h1 id="第一句代码"><a class="header" href="#第一句代码">第一句代码</a></h1>
 <p>如果你就算只碰过一点点编程，应该也会见过这么一句话：</p>
-<pre><code>&quot;Hello, World!&quot;
+<pre><code class="language-gdscript">&quot;Hello, World!&quot;
 </code></pre>
 <p>这是计算机行业的元老级 meme 之一，当人们在学习一门新编程语言时，就会想办法让那个语言把上面这几个字母显示在屏幕上。</p>
 <p>这时你可以打开 Godot，创建一个 Label，然后在 text 属性中写上 <code>Hello, World!</code>，运行后（或许不用运行）就会看到屏幕上出现了这几个字母，恭喜，你学会 GDScript了！</p>
@@ -170,7 +170,7 @@
 <p><img src="./images/create-node.gif" alt="创建节点并添加脚本" /></p>
 <p>在最后出现的窗口中，是对这个新脚本的设置，建议勾上<code>内置脚本</code>选项，其余目前不用改，接着点击<code>创建</code>即可。</p>
 <p>接着咱就被带到了一个代码编辑器中，看起来应该是这样：</p>
-<pre><code class="language-python">extends Control
+<pre><code class="language-gdscript">extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -184,7 +184,7 @@ func _process(delta):
 <p>第一行可能不太一样，这取决于刚刚创建的节点是什么类型。</p>
 </blockquote>
 <p>现在目标聚焦 <code>func _ready():</code> 这一行，在这一行的最后咱们加一个回车，然后输入 <code>print(&quot;Hello, World!&quot;)</code>，完事后这一段应该是下面这个样子：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     print(&quot;Hello, World!&quot;)
     pass
 </code></pre>

@@ -157,7 +157,7 @@
 </code></pre>
 <p>if 可以直接理解成汉语中的<strong>如果</strong>，当逻辑表达式的值为 <code>true</code> 时就会执行下面的代码块，否则就不执行。</p>
 <p>其中的逻辑表达式就是指一条运算结果为逻辑值的式子，现在假设咱有个变量 <code>var 任务完成数 = 10</code> 来表示当前完成了几个任务，当完成 20 个任务时显示恭喜通关：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     var 任务完成数 = 10
     if 任务完成数 &gt;= 20:
         print(&quot;恭喜通关了&quot;)
@@ -165,7 +165,7 @@
 <p>目前运行游戏的话你会发现什么也没有显示，毕竟<code>任务完成数</code>现在是10，if 后面的条件不满足，也就不会执行里面的代码。当然你可以手动把变量值改成 20 以上的数字再试试。</p>
 <h2 id="否则"><a class="header" href="#否则">否则</a></h2>
 <p>现在想完善一下刚才的程序，在任务完成数量不达标时提示玩家需要完成更多任务，那么以目前学到的知识，我们可以写成这样：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     var 任务完成数 = 10
     if 任务完成数 &gt;= 20:
         print(&quot;恭喜通关了&quot;)
@@ -173,7 +173,7 @@
         print(&quot;完成的任务还不够多&quot;)
 </code></pre>
 <p>这样虽然可以实现效果，但是我们可以发现两个 if 的条件语句正好相反，这时可以把第二个 if 语句替换成 <code>else</code> 语句：</p>
-<pre><code class="language-python">if 任务完成数 &gt;= 20:
+<pre><code class="language-gdscript">if 任务完成数 &gt;= 20:
     print(&quot;恭喜通关了&quot;)
 else:
     print(&quot;完成的任务还不够多&quot;)
@@ -188,7 +188,7 @@ else:
 <li>完成 5 个以下时显示 <strong>这才刚刚开始</strong></li>
 </ul>
 <p>于是我们可以写出：</p>
-<pre><code class="language-python">if 任务完成数 &gt;= 20:
+<pre><code class="language-gdscript">if 任务完成数 &gt;= 20:
     print(&quot;恭喜通关&quot;)
 else:
     if 任务完成数 &gt;= 15:
@@ -202,7 +202,7 @@ else:
 <p>这一层一层的 else 语句看起来实在是不好看，那么再认识一个新的关键字：<code>elif</code></p>
 <p><code>elif</code> 就是 else 和 if 的组合形式，它会在上一个 if 的条件不满足时判断自身条件，如果自身条件满足则执行自己的代码，同时 <code>elif</code> 可以多个串联使用。</p>
 <p>修改之前的代码，使用 <code>elif</code> 语句的结果如下：</p>
-<pre><code class="language-python">if 任务完成数 &gt;= 20:
+<pre><code class="language-gdscript">if 任务完成数 &gt;= 20:
     print(&quot;恭喜通关&quot;)
 elif 任务完成数 &gt;= 15:
     print(&quot;马上就完成了&quot;)

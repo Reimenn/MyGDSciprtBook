@@ -151,7 +151,7 @@
 <p>变量是代码中用来存放数据的基本单位（抛开计算机底层不谈），游戏中会变的量都是变量。</p>
 <p>玩家的生命值、游戏分数这种直观看到的数字是变量，玩家的位置、任务进度这种抽象的数据也是变量。</p>
 <p>在 GDScript 中使用 <code>var</code> 关键字声明一个变量，它的基本语法格式如下：</p>
-<pre><code>var &lt;变量名&gt; [= &lt;变量值&gt;]
+<pre><code class="language-gdscript">var &lt;变量名&gt; [= &lt;变量值&gt;]
 </code></pre>
 <p>比如咱们要存放玩家的生命值，咱就可以写一句 <code>var 生命值 = 100</code>，这就声明了一个叫做<code>生命值</code>的变量，其中存放的数据是 100。</p>
 <blockquote>
@@ -161,7 +161,7 @@
 </blockquote>
 <h2 id="变量声明的位置"><a class="header" href="#变量声明的位置">变量声明的位置</a></h2>
 <p>这句 var 开头的代码可以放到方法体中，也可以放到方法体的外面：</p>
-<pre><code class="language-python">var 生命值 = 100 # 放在了 _ready 的外面
+<pre><code class="language-gdscript">var 生命值 = 100 # 放在了 _ready 的外面
 func _ready():
 	var 生命值 = 100 # 放在了 _ready 的里面
 </code></pre>
@@ -170,10 +170,10 @@ func _ready():
 <p>因此可以感觉到，如果要处理一个持续的数据，应该把变量的声明放在方法的外面。</p>
 <h2 id="变量赋值"><a class="header" href="#变量赋值">变量赋值</a></h2>
 <p>现在假设咱们给节点声明了<code>生命值</code>这个变量，现在希望它每帧扣除一滴血，这时就可以使用变量赋值语句来修改变量的值，赋值语句格式如下：</p>
-<pre><code>&lt;变量名&gt; = &lt;新的值&gt;
+<pre><code class="language-gdscript">&lt;变量名&gt; = &lt;新的值&gt;
 </code></pre>
 <p>可见其实就是把 var 关键字去掉了而已，既然这样，实现扣除一滴血的代码就可以这样写：</p>
-<pre><code>func _process(delta):
+<pre><code class="language-gdscript">func _process(delta):
     生命值 = 生命值 - 1
 </code></pre>
 <p>由于 _process 是每帧执行一次，所以上面代码就实现了每帧扣除一点血。</p>

@@ -149,7 +149,7 @@
                     <main>
                         <h1 id="数组"><a class="header" href="#数组">数组</a></h1>
 <p>现在假设我们要给玩家设计个背包，可以装三个物品：</p>
-<pre><code class="language-python"># 只是举个例子，暂时就存字符串了。
+<pre><code class="language-gdscript"># 只是举个例子，暂时就存字符串了。
 var 背包格子1 = &quot;水瓶&quot;
 var 背包格子2 = &quot;钥匙&quot;
 var 背包格子3 = &quot;金币&quot;
@@ -162,11 +162,11 @@ print(背包格子3)
 <h2 id="数组定义"><a class="header" href="#数组定义">数组定义</a></h2>
 <p>于是我们来认识一个新的数据类型：<code>Array</code>，中文名<strong>数组</strong>（也有人叫集合）。</p>
 <p>数组就是一堆数据构成的组，在 GDScript 中使用一对方括号表示数组，在方括号中填入要保存的数据，数据之间用逗号分隔，例如使用数组制作背包：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 </code></pre>
 <h2 id="数组元素引用"><a class="header" href="#数组元素引用">数组元素引用</a></h2>
 <p>这样咱就把很多物品放到了一个变量里，在想要访问背包中的物品时，使用 <code>数组变量名[下标]</code> 来访问：</p>
-<pre><code class="language-python">print(&quot;背包中有：&quot;)
+<pre><code class="language-gdscript">print(&quot;背包中有：&quot;)
 print(背包[0]) # 显示：水瓶
 print(背包[1]) # 显示：钥匙
 print(背包[2]) # 显示：金币
@@ -174,7 +174,7 @@ print(背包) # 显示：[&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&q
 </code></pre>
 <p>方括号里的数字其实就是序号，这里的 <code>[0]</code> 表示背包中的第一个东西，也就是 <code>水瓶</code>。</p>
 <p>这种语法也可以用来给数组中的元素赋值，例如：</p>
-<pre><code class="language-python">背包[0] = &quot;空&quot; # 把水喝了
+<pre><code class="language-gdscript">背包[0] = &quot;空&quot; # 把水喝了
 </code></pre>
 <blockquote>
 <p>[!tip] 下标从 0 开始数</p>
@@ -182,18 +182,18 @@ print(背包) # 显示：[&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&q
 </blockquote>
 <h2 id="添加数据"><a class="header" href="#添加数据">添加数据</a></h2>
 <p>使用 <code>&lt;数组变量&gt;.append(&lt;值&gt;)</code> 的形式可以向数组中添加新的值，例如：</p>
-<pre><code class="language-python">背包.append(&quot;苹果&quot;)
+<pre><code class="language-gdscript">背包.append(&quot;苹果&quot;)
 背包.append(&quot;一本书&quot;)
 </code></pre>
 <h2 id="获取长度"><a class="header" href="#获取长度">获取长度</a></h2>
 <p>使用 <code>len(&lt;数组变量&gt;)</code> 获取一个数组的长度，例如：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 print(len(背包)) # 显示一个数字 3
 </code></pre>
 <p>注意了，长度可不要从 0 开始数。</p>
 <h2 id="删除数据"><a class="header" href="#删除数据">删除数据</a></h2>
 <p>使用 <code>&lt;数组变量&gt;.remove_at(&lt;下标&gt;)</code> 删除指定位置的元素，例如：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 背包.remove_at(1)
 print(背包) # 显示：[&quot;水瓶&quot;, &quot;金币&quot;]
 </code></pre>

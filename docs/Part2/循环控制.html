@@ -149,7 +149,7 @@
                     <main>
                         <h1 id="循环控制"><a class="header" href="#循环控制">循环控制</a></h1>
 <p>某些时候我们可能想要提前结束循环，比如实现功能：显示玩家背包中金币前面的内容。</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;, &quot;帽子&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;, &quot;帽子&quot;]
 
 var 发现金币 = false
 for 物品 in 背包:
@@ -164,7 +164,7 @@ for 物品 in 背包:
 <p>首先认识第一个：<code>break</code>。</p>
 <p>它的功能就是当执行到的时候<strong>跳出</strong>循环，不再进行后续操作。</p>
 <p>这时就可以修改上面的代码：</p>
-<pre><code class="language-python">for 物品 in 背包:
+<pre><code class="language-gdscript">for 物品 in 背包:
     if 物品 == &quot;金币&quot;:
         break
     print(背包)
@@ -174,7 +174,7 @@ for 物品 in 背包:
 <p>第二个：<code>continue</code>。</p>
 <p>它的功能是执行到的时候提前<strong>进入下一次</strong>循环。</p>
 <p>比如现在咱们想要显示所有的个位奇数：</p>
-<pre><code class="language-python">for i in range(10):
+<pre><code class="language-gdscript">for i in range(10):
     if i % 2 == 0: # 是否时偶数
         continue
     print(i)

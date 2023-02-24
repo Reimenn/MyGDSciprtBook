@@ -166,11 +166,11 @@
 <li><code>%</code> 求余（取模）</li>
 </ul>
 <p>最后一个取余数可能有点忘了是什么，其实就是小学二年级还没学小数的时候，“两个数除不尽”剩下的那个数，例如：</p>
-<pre><code class="language-python">print(10 % 3) # 显示 1，因为 10 / 3 商 3 余 1
+<pre><code class="language-gdscript">print(10 % 3) # 显示 1，因为 10 / 3 商 3 余 1
 print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
 </code></pre>
 <p>同时不要忘记先算乘除后算加减，必要时使用括号改变运算顺序：</p>
-<pre><code class="language-python">((10 + 4) * 2 - 8) * 2
+<pre><code class="language-gdscript">((10 + 4) * 2 - 8) * 2
 </code></pre>
 <p>不要轻视这个小学知识点，在修改代码时可能会忘记前后的符号导致运算优先级出错，这种 bug 找起来十分麻烦。</p>
 <blockquote>
@@ -199,7 +199,7 @@ print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
 <li><code>!=</code> 不等于</li>
 </ul>
 <p>这些应该也没什么好讲的，那么看一句代码：</p>
-<pre><code class="language-python">print(10 &gt; 9)
+<pre><code class="language-gdscript">print(10 &gt; 9)
 </code></pre>
 <p>嗯，很简单，可是......它会显示什么呢？</p>
 <p>这时要了解关系表达式的一个特点：它的结果是布尔值，也就是 true 或 false。</p>
@@ -218,7 +218,7 @@ print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
 <h2 id="赋值运算符"><a class="header" href="#赋值运算符">赋值运算符</a></h2>
 <p>我们一直看到的等于号 <code>=</code> 其实就是一个赋值运算符，它的作用就是把右边的值放到左边的变量中。</p>
 <p>其他的常用赋值运算符还有 <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code>，他们分别表示根据变量中原有的值进行相对运算并保存到变量中，例如：</p>
-<pre><code class="language-python">var a = 10
+<pre><code class="language-gdscript">var a = 10
 a += 10  # a 在原来的基础上又加了10，变成了20
 a *= 2   # 由于上一句代码，a已经是20了，再乘上2，就变成了40
 a /= 10  # 40 / 10 得到 4，a变成了4
@@ -238,7 +238,7 @@ print(a) # 显示 4
 </blockquote>
 <h2 id="综合例子"><a class="header" href="#综合例子">综合例子</a></h2>
 <p>现在来测一测自己，下面这段代码的每个 print 会显示什么？</p>
-<pre><code class="language-go">print(5 - 3 &lt; 10)
+<pre><code class="language-gdscript">print(5 - 3 &lt; 10)
 var a = 100
 print(a &gt;= 100 and false)
 a -= 99

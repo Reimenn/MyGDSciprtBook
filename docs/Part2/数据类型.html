@@ -157,7 +157,7 @@
 <li><strong>布尔值</strong>，这种类型表示真假或对错，只有 <code>true</code> 和 <code>false</code> 这两个值，对应 <code>真</code> 和 <code>假</code></li>
 </ul>
 <p>下面是使用时的例子：</p>
-<pre><code class="language-go">var hp      = 100
+<pre><code class="language-gdscript">var hp      = 100
 var pos     = 4.2
 var name    = &quot;Rika&quot;
 var walking = false
@@ -170,7 +170,7 @@ var walking = false
 </blockquote>
 <h2 id="数据类型转换自动"><a class="header" href="#数据类型转换自动">数据类型转换（自动）</a></h2>
 <p>我们看一段代码：</p>
-<pre><code class="language-go">var a = 10
+<pre><code class="language-gdscript">var a = 10
 var b = 3.14
 var c = a + b
 </code></pre>
@@ -182,12 +182,12 @@ var c = a + b
 </blockquote>
 <h2 id="为什么需要数据类型转换"><a class="header" href="#为什么需要数据类型转换">为什么需要数据类型转换？</a></h2>
 <p>我们再看一段代码：</p>
-<pre><code class="language-python">print(10 / 3)
+<pre><code class="language-gdscript">print(10 / 3)
 </code></pre>
 <p>思考，这会显示什么呢？</p>
 <p>按道理讲这应该会显示 3.一堆3，但实际我们只能看到一个数字 3，这是因为这个 <code>10 / 3</code> 是整数运算，这种情况下得到的结果也必定是整数，因此就看不到小数点后面的内容了。</p>
 <p>这时我们可以手动修改一下：</p>
-<pre><code class="language-python">print(10 / 3.0)
+<pre><code class="language-gdscript">print(10 / 3.0)
 </code></pre>
 <p>对于 GDScript 来说，只要数字包含小数点，即便小数位全是 0，这个数也是小数类型，所以修改后的 print 就能正常显示 3.一堆3 了。并且这其中还对整数 10 进行了自动类型转换。</p>
 <blockquote>
@@ -198,7 +198,7 @@ var c = a + b
 </blockquote>
 <h2 id="数据类型转换手动"><a class="header" href="#数据类型转换手动">数据类型转换（手动）</a></h2>
 <p>有自动类型转换，肯定也就有手动类型转换了，现在把刚刚的 <code>10 / 3</code> 代码稍作修改：</p>
-<pre><code class="language-go">var a = 10
+<pre><code class="language-gdscript">var a = 10
 var b = 3
 print(a / b)
 </code></pre>
@@ -213,7 +213,7 @@ print(a / b)
 <li><code>bool</code> - 布尔值</li>
 </ul>
 <p>我们需要把整数变成小数，所以目标类型就是 <code>float</code>，接着来修改 <code>print</code> 这一行：</p>
-<pre><code class="language-python">print(float(a) / float(b)) # 只给一个变量加上 float 也行，另一个会自动转换类型
+<pre><code class="language-gdscript">print(float(a) / float(b)) # 只给一个变量加上 float 也行，另一个会自动转换类型
 </code></pre>
 <p>接着就能再次看到 3.一堆3 了。</p>
 <blockquote>

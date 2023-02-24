@@ -202,7 +202,7 @@
 <p>上文中这段奇怪的文字被称作<strong>伪代码</strong>，也就是说这并不是真正的程序代码，但是它可以更清晰的表达真实代码的逻辑，通常在设计某些复杂代码之前写出来当草稿用。</p>
 </blockquote>
 <p>看起来这好像和编程没什么关系，但我没有糊弄你，真正的代码基本就是这个样子：</p>
-<pre><code class="language-go">func _process(delta):
+<pre><code class="language-gdscript">func _process(delta):
     if Input.is_action_just_pressed(&quot;space&quot;):
         fire()
     else:
@@ -214,7 +214,7 @@
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第一句代码"><a class="header" href="#第一句代码">第一句代码</a></h1>
 <p>如果你就算只碰过一点点编程，应该也会见过这么一句话：</p>
-<pre><code>&quot;Hello, World!&quot;
+<pre><code class="language-gdscript">&quot;Hello, World!&quot;
 </code></pre>
 <p>这是计算机行业的元老级 meme 之一，当人们在学习一门新编程语言时，就会想办法让那个语言把上面这几个字母显示在屏幕上。</p>
 <p>这时你可以打开 Godot，创建一个 Label，然后在 text 属性中写上 <code>Hello, World!</code>，运行后（或许不用运行）就会看到屏幕上出现了这几个字母，恭喜，你学会 GDScript了！</p>
@@ -235,7 +235,7 @@
 <p><img src="Part1/./images/create-node.gif" alt="创建节点并添加脚本" /></p>
 <p>在最后出现的窗口中，是对这个新脚本的设置，建议勾上<code>内置脚本</code>选项，其余目前不用改，接着点击<code>创建</code>即可。</p>
 <p>接着咱就被带到了一个代码编辑器中，看起来应该是这样：</p>
-<pre><code class="language-python">extends Control
+<pre><code class="language-gdscript">extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -249,7 +249,7 @@ func _process(delta):
 <p>第一行可能不太一样，这取决于刚刚创建的节点是什么类型。</p>
 </blockquote>
 <p>现在目标聚焦 <code>func _ready():</code> 这一行，在这一行的最后咱们加一个回车，然后输入 <code>print(&quot;Hello, World!&quot;)</code>，完事后这一段应该是下面这个样子：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     print(&quot;Hello, World!&quot;)
     pass
 </code></pre>
@@ -286,7 +286,7 @@ func _process(delta):
 <p>首先来认识一个最简单的语法，它叫做<code>注释</code>。</p>
 <p>因为代码本质上还是给计算机看的东西，在逻辑复杂或代码太长时，人类阅读起来非常困难，人们就在代码中穿插加入一些小笔记来解释代码的逻辑和用法，这种小笔记就是注释了。</p>
 <p>在 GDScript 中输入一个井号 <code>#</code> 就表示注释，从这个符号开始到这一行结束都属于注释范围，所以再来之前那篇代码，就会发现其中很多东西都是注释（方便理解，我把注释翻译成了中文）：</p>
-<pre><code class="language-python">extends Control
+<pre><code class="language-gdscript">extends Control
 
 # 在节点第一次进入场景树时执行
 func _ready():
@@ -350,7 +350,7 @@ func _process(delta):
 <p>变量是代码中用来存放数据的基本单位（抛开计算机底层不谈），游戏中会变的量都是变量。</p>
 <p>玩家的生命值、游戏分数这种直观看到的数字是变量，玩家的位置、任务进度这种抽象的数据也是变量。</p>
 <p>在 GDScript 中使用 <code>var</code> 关键字声明一个变量，它的基本语法格式如下：</p>
-<pre><code>var &lt;变量名&gt; [= &lt;变量值&gt;]
+<pre><code class="language-gdscript">var &lt;变量名&gt; [= &lt;变量值&gt;]
 </code></pre>
 <p>比如咱们要存放玩家的生命值，咱就可以写一句 <code>var 生命值 = 100</code>，这就声明了一个叫做<code>生命值</code>的变量，其中存放的数据是 100。</p>
 <blockquote>
@@ -360,7 +360,7 @@ func _process(delta):
 </blockquote>
 <h2 id="变量声明的位置"><a class="header" href="#变量声明的位置">变量声明的位置</a></h2>
 <p>这句 var 开头的代码可以放到方法体中，也可以放到方法体的外面：</p>
-<pre><code class="language-python">var 生命值 = 100 # 放在了 _ready 的外面
+<pre><code class="language-gdscript">var 生命值 = 100 # 放在了 _ready 的外面
 func _ready():
 	var 生命值 = 100 # 放在了 _ready 的里面
 </code></pre>
@@ -369,10 +369,10 @@ func _ready():
 <p>因此可以感觉到，如果要处理一个持续的数据，应该把变量的声明放在方法的外面。</p>
 <h2 id="变量赋值"><a class="header" href="#变量赋值">变量赋值</a></h2>
 <p>现在假设咱们给节点声明了<code>生命值</code>这个变量，现在希望它每帧扣除一滴血，这时就可以使用变量赋值语句来修改变量的值，赋值语句格式如下：</p>
-<pre><code>&lt;变量名&gt; = &lt;新的值&gt;
+<pre><code class="language-gdscript">&lt;变量名&gt; = &lt;新的值&gt;
 </code></pre>
 <p>可见其实就是把 var 关键字去掉了而已，既然这样，实现扣除一滴血的代码就可以这样写：</p>
-<pre><code>func _process(delta):
+<pre><code class="language-gdscript">func _process(delta):
     生命值 = 生命值 - 1
 </code></pre>
 <p>由于 _process 是每帧执行一次，所以上面代码就实现了每帧扣除一点血。</p>
@@ -416,7 +416,7 @@ func _ready():
 <li><strong>布尔值</strong>，这种类型表示真假或对错，只有 <code>true</code> 和 <code>false</code> 这两个值，对应 <code>真</code> 和 <code>假</code></li>
 </ul>
 <p>下面是使用时的例子：</p>
-<pre><code class="language-go">var hp      = 100
+<pre><code class="language-gdscript">var hp      = 100
 var pos     = 4.2
 var name    = &quot;Rika&quot;
 var walking = false
@@ -429,7 +429,7 @@ var walking = false
 </blockquote>
 <h2 id="数据类型转换自动"><a class="header" href="#数据类型转换自动">数据类型转换（自动）</a></h2>
 <p>我们看一段代码：</p>
-<pre><code class="language-go">var a = 10
+<pre><code class="language-gdscript">var a = 10
 var b = 3.14
 var c = a + b
 </code></pre>
@@ -441,12 +441,12 @@ var c = a + b
 </blockquote>
 <h2 id="为什么需要数据类型转换"><a class="header" href="#为什么需要数据类型转换">为什么需要数据类型转换？</a></h2>
 <p>我们再看一段代码：</p>
-<pre><code class="language-python">print(10 / 3)
+<pre><code class="language-gdscript">print(10 / 3)
 </code></pre>
 <p>思考，这会显示什么呢？</p>
 <p>按道理讲这应该会显示 3.一堆3，但实际我们只能看到一个数字 3，这是因为这个 <code>10 / 3</code> 是整数运算，这种情况下得到的结果也必定是整数，因此就看不到小数点后面的内容了。</p>
 <p>这时我们可以手动修改一下：</p>
-<pre><code class="language-python">print(10 / 3.0)
+<pre><code class="language-gdscript">print(10 / 3.0)
 </code></pre>
 <p>对于 GDScript 来说，只要数字包含小数点，即便小数位全是 0，这个数也是小数类型，所以修改后的 print 就能正常显示 3.一堆3 了。并且这其中还对整数 10 进行了自动类型转换。</p>
 <blockquote>
@@ -457,7 +457,7 @@ var c = a + b
 </blockquote>
 <h2 id="数据类型转换手动"><a class="header" href="#数据类型转换手动">数据类型转换（手动）</a></h2>
 <p>有自动类型转换，肯定也就有手动类型转换了，现在把刚刚的 <code>10 / 3</code> 代码稍作修改：</p>
-<pre><code class="language-go">var a = 10
+<pre><code class="language-gdscript">var a = 10
 var b = 3
 print(a / b)
 </code></pre>
@@ -472,7 +472,7 @@ print(a / b)
 <li><code>bool</code> - 布尔值</li>
 </ul>
 <p>我们需要把整数变成小数，所以目标类型就是 <code>float</code>，接着来修改 <code>print</code> 这一行：</p>
-<pre><code class="language-python">print(float(a) / float(b)) # 只给一个变量加上 float 也行，另一个会自动转换类型
+<pre><code class="language-gdscript">print(float(a) / float(b)) # 只给一个变量加上 float 也行，另一个会自动转换类型
 </code></pre>
 <p>接着就能再次看到 3.一堆3 了。</p>
 <blockquote>
@@ -502,11 +502,11 @@ print(a / b)
 <li><code>%</code> 求余（取模）</li>
 </ul>
 <p>最后一个取余数可能有点忘了是什么，其实就是小学二年级还没学小数的时候，“两个数除不尽”剩下的那个数，例如：</p>
-<pre><code class="language-python">print(10 % 3) # 显示 1，因为 10 / 3 商 3 余 1
+<pre><code class="language-gdscript">print(10 % 3) # 显示 1，因为 10 / 3 商 3 余 1
 print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
 </code></pre>
 <p>同时不要忘记先算乘除后算加减，必要时使用括号改变运算顺序：</p>
-<pre><code class="language-python">((10 + 4) * 2 - 8) * 2
+<pre><code class="language-gdscript">((10 + 4) * 2 - 8) * 2
 </code></pre>
 <p>不要轻视这个小学知识点，在修改代码时可能会忘记前后的符号导致运算优先级出错，这种 bug 找起来十分麻烦。</p>
 <blockquote>
@@ -535,7 +535,7 @@ print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
 <li><code>!=</code> 不等于</li>
 </ul>
 <p>这些应该也没什么好讲的，那么看一句代码：</p>
-<pre><code class="language-python">print(10 &gt; 9)
+<pre><code class="language-gdscript">print(10 &gt; 9)
 </code></pre>
 <p>嗯，很简单，可是......它会显示什么呢？</p>
 <p>这时要了解关系表达式的一个特点：它的结果是布尔值，也就是 true 或 false。</p>
@@ -554,7 +554,7 @@ print(15 % 5) # 显示 0，因为 15 / 5 商 5，正好除尽
 <h2 id="赋值运算符"><a class="header" href="#赋值运算符">赋值运算符</a></h2>
 <p>我们一直看到的等于号 <code>=</code> 其实就是一个赋值运算符，它的作用就是把右边的值放到左边的变量中。</p>
 <p>其他的常用赋值运算符还有 <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code>，他们分别表示根据变量中原有的值进行相对运算并保存到变量中，例如：</p>
-<pre><code class="language-python">var a = 10
+<pre><code class="language-gdscript">var a = 10
 a += 10  # a 在原来的基础上又加了10，变成了20
 a *= 2   # 由于上一句代码，a已经是20了，再乘上2，就变成了40
 a /= 10  # 40 / 10 得到 4，a变成了4
@@ -574,7 +574,7 @@ print(a) # 显示 4
 </blockquote>
 <h2 id="综合例子"><a class="header" href="#综合例子">综合例子</a></h2>
 <p>现在来测一测自己，下面这段代码的每个 print 会显示什么？</p>
-<pre><code class="language-go">print(5 - 3 &lt; 10)
+<pre><code class="language-gdscript">print(5 - 3 &lt; 10)
 var a = 100
 print(a &gt;= 100 and false)
 a -= 99
@@ -615,7 +615,7 @@ print(a + 10)
 <p>然后就会看到一个弹窗，在窗口中选中添加了脚本的 Control 节点并点击连接</p>
 <p><img src="Part2/./images/connect_button_pressed_2.png" alt="连接信号" /></p>
 <p>然后我们的脚本中就会多出一个 <code>_on_button_pressed</code> 方法，应该长这样：</p>
-<pre><code class="language-python">func _on_button_pressed():
+<pre><code class="language-gdscript">func _on_button_pressed():
 	pass # Replace with function body.
 </code></pre>
 <h2 id="解读"><a class="header" href="#解读">解读</a></h2>
@@ -625,18 +625,18 @@ print(a + 10)
 <pre><code>$&lt;节点路径&gt;
 </code></pre>
 <p>目前输入框的节点路径就是他的名字，所以咱可以在 <code>_on_button_pressed</code> 方法中写下：</p>
-<pre><code class="language-python">var 输入框 = $LineEdit
+<pre><code class="language-gdscript">var 输入框 = $LineEdit
 var 按钮 = $Button # 顺手把按钮也拿到
 </code></pre>
 <h2 id="获取节点属性"><a class="header" href="#获取节点属性">获取节点属性</a></h2>
 <p>输入框节点的 text 属性表示输入的值，通过一个小数点的点 <code>.</code>，可以从节点中获取属性，所以：</p>
-<pre><code class="language-python">var 输入值 = 输入框.text
+<pre><code class="language-gdscript">var 输入值 = 输入框.text
 </code></pre>
 <p>按钮的显示文字也是 text 属性控制的，所以把这个输入值加上前缀，再交给按钮的 text 就完成这节整活了。</p>
-<pre><code class="language-python">按钮.text = &quot;你好：&quot; + 输入值
+<pre><code class="language-gdscript">按钮.text = &quot;你好：&quot; + 输入值
 </code></pre>
 <p>最终的完整方法应该长这样：</p>
-<pre><code class="language-python">func _on_button_pressed():
+<pre><code class="language-gdscript">func _on_button_pressed():
 	var 输入框 = $LineEdit
 	var 按钮 = $Button # 顺手把按钮也拿到
 	var 输入值 = 输入框.text
@@ -646,12 +646,12 @@ var 按钮 = $Button # 顺手把按钮也拿到
 <p>之前我们简单介绍了一下代码块概念，这里再复习一下。</p>
 <p>代码块就是指一片代码的集合，通常使用一个冒号 <code>:</code> 开头，然后使用相同的缩进表示，某些其他语法需要由代码块来组成。</p>
 <p>例如方法：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     print(&quot;我是代码块里第一行代码&quot;)
     print(&quot;我是代码块里第二行代码&quot;)
 </code></pre>
 <p>现在假设有一个 print 向右缩进了一点：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     print(&quot;我是代码块里第一行代码&quot;)
         print(&quot;这一行会出错&quot;)
 </code></pre>
@@ -667,7 +667,7 @@ var 按钮 = $Button # 顺手把按钮也拿到
 </code></pre>
 <p>if 可以直接理解成汉语中的<strong>如果</strong>，当逻辑表达式的值为 <code>true</code> 时就会执行下面的代码块，否则就不执行。</p>
 <p>其中的逻辑表达式就是指一条运算结果为逻辑值的式子，现在假设咱有个变量 <code>var 任务完成数 = 10</code> 来表示当前完成了几个任务，当完成 20 个任务时显示恭喜通关：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     var 任务完成数 = 10
     if 任务完成数 &gt;= 20:
         print(&quot;恭喜通关了&quot;)
@@ -675,7 +675,7 @@ var 按钮 = $Button # 顺手把按钮也拿到
 <p>目前运行游戏的话你会发现什么也没有显示，毕竟<code>任务完成数</code>现在是10，if 后面的条件不满足，也就不会执行里面的代码。当然你可以手动把变量值改成 20 以上的数字再试试。</p>
 <h2 id="否则"><a class="header" href="#否则">否则</a></h2>
 <p>现在想完善一下刚才的程序，在任务完成数量不达标时提示玩家需要完成更多任务，那么以目前学到的知识，我们可以写成这样：</p>
-<pre><code class="language-python">func _ready():
+<pre><code class="language-gdscript">func _ready():
     var 任务完成数 = 10
     if 任务完成数 &gt;= 20:
         print(&quot;恭喜通关了&quot;)
@@ -683,7 +683,7 @@ var 按钮 = $Button # 顺手把按钮也拿到
         print(&quot;完成的任务还不够多&quot;)
 </code></pre>
 <p>这样虽然可以实现效果，但是我们可以发现两个 if 的条件语句正好相反，这时可以把第二个 if 语句替换成 <code>else</code> 语句：</p>
-<pre><code class="language-python">if 任务完成数 &gt;= 20:
+<pre><code class="language-gdscript">if 任务完成数 &gt;= 20:
     print(&quot;恭喜通关了&quot;)
 else:
     print(&quot;完成的任务还不够多&quot;)
@@ -698,7 +698,7 @@ else:
 <li>完成 5 个以下时显示 <strong>这才刚刚开始</strong></li>
 </ul>
 <p>于是我们可以写出：</p>
-<pre><code class="language-python">if 任务完成数 &gt;= 20:
+<pre><code class="language-gdscript">if 任务完成数 &gt;= 20:
     print(&quot;恭喜通关&quot;)
 else:
     if 任务完成数 &gt;= 15:
@@ -712,7 +712,7 @@ else:
 <p>这一层一层的 else 语句看起来实在是不好看，那么再认识一个新的关键字：<code>elif</code></p>
 <p><code>elif</code> 就是 else 和 if 的组合形式，它会在上一个 if 的条件不满足时判断自身条件，如果自身条件满足则执行自己的代码，同时 <code>elif</code> 可以多个串联使用。</p>
 <p>修改之前的代码，使用 <code>elif</code> 语句的结果如下：</p>
-<pre><code class="language-python">if 任务完成数 &gt;= 20:
+<pre><code class="language-gdscript">if 任务完成数 &gt;= 20:
     print(&quot;恭喜通关&quot;)
 elif 任务完成数 &gt;= 15:
     print(&quot;马上就完成了&quot;)
@@ -734,7 +734,7 @@ else:
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="作用域"><a class="header" href="#作用域">作用域</a></h1>
 <p>我们来看一段代码：</p>
-<pre><code class="language-python">var a = 10
+<pre><code class="language-gdscript">var a = 10
 if a &gt; 0:
     var b = 6
 print(b)
@@ -746,7 +746,7 @@ print(b)
 <p>规则只有一条：<strong>内层代码块可以访问外层代码块的变量，但反之不行。</strong></p>
 <p>上例中，<code>var b = 6</code> 这一句话就是在 if 的内层作用域当中的，而在 if 之外的 <code>print(b)</code> 在位外层作用域，就不能访问内层的变量。</p>
 <p>现在修改代码：</p>
-<pre><code class="language-python">var a = 10
+<pre><code class="language-gdscript">var a = 10
 if a &gt; 0:
     var b = 6
     print(a)
@@ -791,7 +791,7 @@ if a &gt; 0:
 <p>脚本放置在最外层的 Panel 节点上，然后绑定按钮的 <code>pressed</code> 信号。</p>
 <p>界面布局和组件设置一类的操作我就不再讲解了，大家随意点击自己琢磨即可，没有什么特别难的地方。</p>
 <p>代码：</p>
-<pre><code class="language-python">extends Panel
+<pre><code class="language-gdscript">extends Panel
 
 var 钱包 = 1000
 
@@ -800,22 +800,22 @@ func _on_button_pressed():
         # 先交钱
 		钱包 -= 100
         $Label3.text = &quot;钱包：&quot; + str(钱包)
-		
+
         # 获取下注的两个数字
 		var 下注数a = $SpinBox1.value
 		var 下注数b = $SpinBox2.value
-        
+
         # 随机产生两个数字
 		var 随机数a = randi_range(1, 9)
 		var 随机数b = randi_range(1, 9)
-        
+
         # 在消息 label 上显示随机产生的两个数，最后的 &quot;\n&quot; 表示换行。
 		$Label2.text = str(随机数a) + &quot;, &quot; + str(随机数b) + &quot;\n&quot;
-		
+
         # 判断两个数字是否赌对了
 		var a赌对了 = 下注数a == 随机数a
 		var b赌对了 = 下注数b == 随机数b
-        
+
         # 根据两个数字的猜测结果加钱
 		if a赌对了 and b赌对了:
 			$Label2.text += &quot;全猜对了！奖金 3000&quot;
@@ -842,7 +842,7 @@ func _on_button_pressed():
 </code></pre>
 <p>这和基本的 if 语句是一样的，只不过换成了 <code>while</code> 关键字，执行逻辑为：如果条件为真，则执行一次代码块，然后再判断条件，如果条件还为真，则再执行代码块，然后反复判断 + 执行，直到条件为假。</p>
 <p>那么咱的 100 和 <code>hello</code> 就可以这样写：</p>
-<pre><code class="language-python">var 计数 = 0
+<pre><code class="language-gdscript">var 计数 = 0
 while 计数 &lt; 100:
     print(&quot;hello&quot;)
     计数 += 1
@@ -852,20 +852,20 @@ while 计数 &lt; 100:
 </blockquote>
 <h2 id="死循环"><a class="header" href="#死循环">死循环</a></h2>
 <p>写循环时最容易出现的错误就是死循环，死循环并不是说循环死了，而是循环一直活着，例如：</p>
-<pre><code class="language-python">var 计数 = 0
+<pre><code class="language-gdscript">var 计数 = 0
 while 计数 &lt; 100:
     print(&quot;hello&quot;)
 </code></pre>
 <p>我删掉了 <code>计数 += 1</code> 这一句代码，此时的 <code>计数</code> 变量将一直为 0，while 的条件也就永远为 <code>true</code>，所以这个循环会反复执行停不下来，这种代码会导致游戏卡死，甚至需要任务管理器才能退出，不过好在开发阶段可以点击 Godot 右上角的停止按钮来结束游戏。</p>
 <blockquote>
-<p>[!note] </p>
+<p>[!note]</p>
 <p>游戏画面的更新和执行代码并不是同时进行的，他们的执行顺序可以简单理解为交叉进行，例如：</p>
 <p>代码 -&gt; 更新画面 -&gt; 代码 -&gt; 更新画面 -&gt; 代码 -&gt; 更新画面 -&gt; ...</p>
 <p>由于代码执行的很快，所以玩家眼中游戏画面是连续的，但如果现在有一个死循环或很长很长的循环，画面自然就会卡住。</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="数组"><a class="header" href="#数组">数组</a></h1>
 <p>现在假设我们要给玩家设计个背包，可以装三个物品：</p>
-<pre><code class="language-python"># 只是举个例子，暂时就存字符串了。
+<pre><code class="language-gdscript"># 只是举个例子，暂时就存字符串了。
 var 背包格子1 = &quot;水瓶&quot;
 var 背包格子2 = &quot;钥匙&quot;
 var 背包格子3 = &quot;金币&quot;
@@ -878,11 +878,11 @@ print(背包格子3)
 <h2 id="数组定义"><a class="header" href="#数组定义">数组定义</a></h2>
 <p>于是我们来认识一个新的数据类型：<code>Array</code>，中文名<strong>数组</strong>（也有人叫集合）。</p>
 <p>数组就是一堆数据构成的组，在 GDScript 中使用一对方括号表示数组，在方括号中填入要保存的数据，数据之间用逗号分隔，例如使用数组制作背包：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 </code></pre>
 <h2 id="数组元素引用"><a class="header" href="#数组元素引用">数组元素引用</a></h2>
 <p>这样咱就把很多物品放到了一个变量里，在想要访问背包中的物品时，使用 <code>数组变量名[下标]</code> 来访问：</p>
-<pre><code class="language-python">print(&quot;背包中有：&quot;)
+<pre><code class="language-gdscript">print(&quot;背包中有：&quot;)
 print(背包[0]) # 显示：水瓶
 print(背包[1]) # 显示：钥匙
 print(背包[2]) # 显示：金币
@@ -890,7 +890,7 @@ print(背包) # 显示：[&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&q
 </code></pre>
 <p>方括号里的数字其实就是序号，这里的 <code>[0]</code> 表示背包中的第一个东西，也就是 <code>水瓶</code>。</p>
 <p>这种语法也可以用来给数组中的元素赋值，例如：</p>
-<pre><code class="language-python">背包[0] = &quot;空&quot; # 把水喝了
+<pre><code class="language-gdscript">背包[0] = &quot;空&quot; # 把水喝了
 </code></pre>
 <blockquote>
 <p>[!tip] 下标从 0 开始数</p>
@@ -898,24 +898,24 @@ print(背包) # 显示：[&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&q
 </blockquote>
 <h2 id="添加数据"><a class="header" href="#添加数据">添加数据</a></h2>
 <p>使用 <code>&lt;数组变量&gt;.append(&lt;值&gt;)</code> 的形式可以向数组中添加新的值，例如：</p>
-<pre><code class="language-python">背包.append(&quot;苹果&quot;)
+<pre><code class="language-gdscript">背包.append(&quot;苹果&quot;)
 背包.append(&quot;一本书&quot;)
 </code></pre>
 <h2 id="获取长度"><a class="header" href="#获取长度">获取长度</a></h2>
 <p>使用 <code>len(&lt;数组变量&gt;)</code> 获取一个数组的长度，例如：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 print(len(背包)) # 显示一个数字 3
 </code></pre>
 <p>注意了，长度可不要从 0 开始数。</p>
 <h2 id="删除数据"><a class="header" href="#删除数据">删除数据</a></h2>
 <p>使用 <code>&lt;数组变量&gt;.remove_at(&lt;下标&gt;)</code> 删除指定位置的元素，例如：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 背包.remove_at(1)
 print(背包) # 显示：[&quot;水瓶&quot;, &quot;金币&quot;]
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="遍历"><a class="header" href="#遍历">遍历</a></h1>
 <p>我们现在有了背包，如果现在要每行显示一个背包物品，我们可以：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 print(&quot;背包中有：&quot;)
 print(背包[0]) # 显示：水瓶
 print(背包[1]) # 显示：钥匙
@@ -923,7 +923,7 @@ print(背包[2]) # 显示：金币
 </code></pre>
 <p>很明显这样做只能显示背包的前三个物品，假设背包很大就不能这样写了。</p>
 <p>此时结合之前的 <code>while</code> 语句和 <code>len()</code> 获取数组长度，可以改成下面这样：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 print(&quot;背包中有：&quot;)
 var 下标 = 0
 while 下标 &lt; len(背包):
@@ -937,25 +937,25 @@ while 下标 &lt; len(背包):
 </blockquote>
 <h2 id="for"><a class="header" href="#for">for</a></h2>
 <p>上面这种把数组中每个元素都访问一次的行为被称为遍历，这种操作非常常见，于是有了一种专门为遍历而生的语法：</p>
-<pre><code>for &lt;元素变量名&gt; in &lt;遍历目标&gt;:
+<pre><code class="language-gdscript">for &lt;元素变量名&gt; in &lt;遍历目标&gt;:
     &lt;代码块&gt;
 </code></pre>
 <p>这个东西本质上还是个循环，循环次数就是遍历目标的长度，每一轮循环中，都将从遍历目标里取出一个元素放到元素变量中。</p>
 <p>把之前的 while 换成 <code>for</code>，运行结果不变，代码如下：</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 print(&quot;背包中有：&quot;)
 for 物品 in 背包:
     print(物品)
 </code></pre>
 <h2 id="range"><a class="header" href="#range">range</a></h2>
 <p>有时候我们想直接指定循环次数，例如显示 50 个 hello，这样直接用一个变量和 while 也可以搞定，但我们可以结合 <code>range</code> 方法和 <code>for</code> 来实现同样的效果：</p>
-<pre><code class="language-python">for 当前次数 in range(50):
+<pre><code class="language-gdscript">for 当前次数 in range(50):
     print(&quot;Hello&quot;)
 </code></pre>
 <p><code>range</code> 这个方法会根据括号里的数字产生一个数组，里面分别是 1、2、3、4...直到括号里的数字，但不包括那个数。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="循环控制"><a class="header" href="#循环控制">循环控制</a></h1>
 <p>某些时候我们可能想要提前结束循环，比如实现功能：显示玩家背包中金币前面的内容。</p>
-<pre><code class="language-python">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;, &quot;帽子&quot;]
+<pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;, &quot;帽子&quot;]
 
 var 发现金币 = false
 for 物品 in 背包:
@@ -970,7 +970,7 @@ for 物品 in 背包:
 <p>首先认识第一个：<code>break</code>。</p>
 <p>它的功能就是当执行到的时候<strong>跳出</strong>循环，不再进行后续操作。</p>
 <p>这时就可以修改上面的代码：</p>
-<pre><code class="language-python">for 物品 in 背包:
+<pre><code class="language-gdscript">for 物品 in 背包:
     if 物品 == &quot;金币&quot;:
         break
     print(背包)
@@ -980,7 +980,7 @@ for 物品 in 背包:
 <p>第二个：<code>continue</code>。</p>
 <p>它的功能是执行到的时候提前<strong>进入下一次</strong>循环。</p>
 <p>比如现在咱们想要显示所有的个位奇数：</p>
-<pre><code class="language-python">for i in range(10):
+<pre><code class="language-gdscript">for i in range(10):
     if i % 2 == 0: # 是否时偶数
         continue
     print(i)

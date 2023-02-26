@@ -163,7 +163,7 @@
 <p>然后就会看到一个弹窗，在窗口中选中添加了脚本的 Control 节点并点击连接</p>
 <p><img src="./images/connect_button_pressed_2.png" alt="连接信号" /></p>
 <p>然后我们的脚本中就会多出一个 <code>_on_button_pressed</code> 方法，应该长这样：</p>
-<pre><code class="language-python">func _on_button_pressed():
+<pre><code class="language-gdscript">func _on_button_pressed():
 	pass # Replace with function body.
 </code></pre>
 <h2 id="解读"><a class="header" href="#解读">解读</a></h2>
@@ -173,18 +173,18 @@
 <pre><code>$&lt;节点路径&gt;
 </code></pre>
 <p>目前输入框的节点路径就是他的名字，所以咱可以在 <code>_on_button_pressed</code> 方法中写下：</p>
-<pre><code class="language-python">var 输入框 = $LineEdit
+<pre><code class="language-gdscript">var 输入框 = $LineEdit
 var 按钮 = $Button # 顺手把按钮也拿到
 </code></pre>
 <h2 id="获取节点属性"><a class="header" href="#获取节点属性">获取节点属性</a></h2>
 <p>输入框节点的 text 属性表示输入的值，通过一个小数点的点 <code>.</code>，可以从节点中获取属性，所以：</p>
-<pre><code class="language-python">var 输入值 = 输入框.text
+<pre><code class="language-gdscript">var 输入值 = 输入框.text
 </code></pre>
 <p>按钮的显示文字也是 text 属性控制的，所以把这个输入值加上前缀，再交给按钮的 text 就完成这节整活了。</p>
-<pre><code class="language-python">按钮.text = &quot;你好：&quot; + 输入值
+<pre><code class="language-gdscript">按钮.text = &quot;你好：&quot; + 输入值
 </code></pre>
 <p>最终的完整方法应该长这样：</p>
-<pre><code class="language-python">func _on_button_pressed():
+<pre><code class="language-gdscript">func _on_button_pressed():
 	var 输入框 = $LineEdit
 	var 按钮 = $Button # 顺手把按钮也拿到
 	var 输入值 = 输入框.text

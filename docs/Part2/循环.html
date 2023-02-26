@@ -155,7 +155,7 @@
 </code></pre>
 <p>这和基本的 if 语句是一样的，只不过换成了 <code>while</code> 关键字，执行逻辑为：如果条件为真，则执行一次代码块，然后再判断条件，如果条件还为真，则再执行代码块，然后反复判断 + 执行，直到条件为假。</p>
 <p>那么咱的 100 和 <code>hello</code> 就可以这样写：</p>
-<pre><code class="language-python">var 计数 = 0
+<pre><code class="language-gdscript">var 计数 = 0
 while 计数 &lt; 100:
     print(&quot;hello&quot;)
     计数 += 1
@@ -165,13 +165,13 @@ while 计数 &lt; 100:
 </blockquote>
 <h2 id="死循环"><a class="header" href="#死循环">死循环</a></h2>
 <p>写循环时最容易出现的错误就是死循环，死循环并不是说循环死了，而是循环一直活着，例如：</p>
-<pre><code class="language-python">var 计数 = 0
+<pre><code class="language-gdscript">var 计数 = 0
 while 计数 &lt; 100:
     print(&quot;hello&quot;)
 </code></pre>
 <p>我删掉了 <code>计数 += 1</code> 这一句代码，此时的 <code>计数</code> 变量将一直为 0，while 的条件也就永远为 <code>true</code>，所以这个循环会反复执行停不下来，这种代码会导致游戏卡死，甚至需要任务管理器才能退出，不过好在开发阶段可以点击 Godot 右上角的停止按钮来结束游戏。</p>
 <blockquote>
-<p>[!note] </p>
+<p>[!note]</p>
 <p>游戏画面的更新和执行代码并不是同时进行的，他们的执行顺序可以简单理解为交叉进行，例如：</p>
 <p>代码 -&gt; 更新画面 -&gt; 代码 -&gt; 更新画面 -&gt; 代码 -&gt; 更新画面 -&gt; ...</p>
 <p>由于代码执行的很快，所以玩家眼中游戏画面是连续的，但如果现在有一个死循环或很长很长的循环，画面自然就会卡住。</p>

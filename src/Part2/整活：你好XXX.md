@@ -30,7 +30,7 @@
 
 然后我们的脚本中就会多出一个 `_on_button_pressed` 方法，应该长这样：
 
-```python
+```gdscript
 func _on_button_pressed():
 	pass # Replace with function body.
 ```
@@ -49,7 +49,7 @@ $<节点路径>
 
 目前输入框的节点路径就是他的名字，所以咱可以在 `_on_button_pressed` 方法中写下：
 
-```python
+```gdscript
 var 输入框 = $LineEdit
 var 按钮 = $Button # 顺手把按钮也拿到
 ```
@@ -58,23 +58,22 @@ var 按钮 = $Button # 顺手把按钮也拿到
 
 输入框节点的 text 属性表示输入的值，通过一个小数点的点 `.`，可以从节点中获取属性，所以：
 
-```python
+```gdscript
 var 输入值 = 输入框.text
 ```
 
 按钮的显示文字也是 text 属性控制的，所以把这个输入值加上前缀，再交给按钮的 text 就完成这节整活了。
 
-```python
+```gdscript
 按钮.text = "你好：" + 输入值
 ```
 
 最终的完整方法应该长这样：
 
-```python
+```gdscript
 func _on_button_pressed():
 	var 输入框 = $LineEdit
 	var 按钮 = $Button # 顺手把按钮也拿到
 	var 输入值 = 输入框.text
 	按钮.text = "你好：" + 输入值
 ```
-

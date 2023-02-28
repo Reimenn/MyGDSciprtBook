@@ -6,7 +6,7 @@
 #content blockquote p {
     opacity: 0.6;
 }
-#content code[class="hljs"] {
+#content p code.hljs {
     font-size: 100%;
     padding: 0 0.1em !important;
     

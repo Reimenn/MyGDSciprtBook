@@ -24,4 +24,10 @@
 
 *广告时间：本文作者靠在线一对一教学赚零花钱，如果你想 0 障碍快速学习游戏开发或者其他什么编程知识，欢迎联系我。*
 
+---
+
 > 本文使用 [Mdbook](https://github.com/rust-lang/mdBook) 编写。
+
+> 感谢 [lightyears](https://github.com/lightyears1998) 同志提供的 GDScript 语法高亮支持。
+
+> 感谢 [saierXP](https://github.com/saierXP) 同志指出问题并提供建议。

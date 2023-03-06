@@ -50,16 +50,20 @@ $<节点路径>
 目前输入框的节点路径就是他的名字，所以咱可以在 `_on_button_pressed` 方法中写下：
 
 ```gdscript
-var 输入框 = $LineEdit
-var 按钮 = $Button # 顺手把按钮也拿到
+var 输入框: LineEdit = $LineEdit
+var 按钮: Button = $Button # 顺手把按钮也拿到
 ```
+
+> [!tip]
+>
+> `LineEdit` 和 `Button` 是节点的类型，这些节点类型也是一种数据类型，可以用在强类型语法中。
 
 ## 获取节点属性
 
 输入框节点的 text 属性表示输入的值，通过一个小数点的点 `.`，可以从节点中获取属性，所以：
 
 ```gdscript
-var 输入值 = 输入框.text
+var 输入值: String = 输入框.text
 ```
 
 按钮的显示文字也是 text 属性控制的，所以把这个输入值加上前缀，再交给按钮的 text 就完成这节整活了。
@@ -72,8 +76,12 @@ var 输入值 = 输入框.text
 
 ```gdscript
 func _on_button_pressed():
-	var 输入框 = $LineEdit
-	var 按钮 = $Button # 顺手把按钮也拿到
-	var 输入值 = 输入框.text
+	var 输入框: LineEdit = $LineEdit
+	var 按钮: Button = $Button # 顺手把按钮也拿到
+	var 输入值: String = 输入框.text
 	按钮.text = "你好：" + 输入值
 ```
+
+> [!tip]
+>
+> 文中代码使用了强类型语法，也可以不使用，但推荐加上

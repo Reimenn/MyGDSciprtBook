@@ -30,6 +30,12 @@
 >
 > A: 首先视频教程制作太麻烦，其次，我认为通过视频学习东西其实更加费时费力，文档可以随时回头看，视频容易看一遍就自我感觉都会了。
 
+---
+
+> 想给这篇文章起个名字，叫做《灵动 Godot 编程：小白的 GDScript 快速入门》怎么样？
+
+---
+
 > 本文使用 [Mdbook](https://github.com/rust-lang/mdBook) 编写。
 >
 > 感谢 [lightyears](https://github.com/lightyears1998) 同志提供的 GDScript 语法高亮支持。

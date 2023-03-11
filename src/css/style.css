@@ -16,3 +16,7 @@
 #content main > p{
     text-indent: 2em;
 }
+
+main p img{
+    box-shadow: 0 0 9px #000;
+}

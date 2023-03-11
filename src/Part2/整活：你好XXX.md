@@ -32,7 +32,7 @@
 
 ```gdscript
 func _on_button_pressed():
-	pass # Replace with function body.
+    pass # Replace with function body.
 ```
 
 ## 解读
@@ -76,10 +76,10 @@ var 输入值: String = 输入框.text
 
 ```gdscript
 func _on_button_pressed():
-	var 输入框: LineEdit = $LineEdit
-	var 按钮: Button = $Button # 顺手把按钮也拿到
-	var 输入值: String = 输入框.text
-	按钮.text = "你好：" + 输入值
+    var 输入框: LineEdit = $LineEdit
+    var 按钮: Button = $Button # 顺手把按钮也拿到
+    var 输入值: String = 输入框.text
+    按钮.text = "你好：" + 输入值
 ```
 
 > [!tip]

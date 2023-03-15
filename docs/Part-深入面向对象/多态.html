@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>多态</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.\.\mdbook-admonish.css">
+        <link rel="stylesheet" href="../src/css/style.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../GDScript.html">GDScript 零基础图文入门</a></li><li class="chapter-item expanded "><a href="../ABOUT.html"><strong aria-hidden="true">1.</strong> 关于本文</a></li><li class="chapter-item expanded "><a href="../Part1/Start.html"><strong aria-hidden="true">2.</strong> 开始</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part1/什么是编程.html"><strong aria-hidden="true">2.1.</strong> 什么是编程</a></li><li class="chapter-item expanded "><a href="../Part1/第一句代码.html"><strong aria-hidden="true">2.2.</strong> 第一句代码</a></li><li class="chapter-item expanded "><a href="../Part1/脚本结构.html"><strong aria-hidden="true">2.3.</strong> 脚本结构</a></li><li class="chapter-item expanded "><a href="../Part1/后续预告.html"><strong aria-hidden="true">2.4.</strong> 后续预告</a></li></ol></li><li class="chapter-item expanded "><a href="../Part2/Start.html"><strong aria-hidden="true">3.</strong> 基础语法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part2/变量.html"><strong aria-hidden="true">3.1.</strong> 变量</a></li><li class="chapter-item expanded "><a href="../Part2/数据类型.html"><strong aria-hidden="true">3.2.</strong> 数据类型</a></li><li class="chapter-item expanded "><a href="../Part2/表达式与运算符.html"><strong aria-hidden="true">3.3.</strong> 表达式与运算符</a></li><li class="chapter-item expanded "><a href="../Part2/强类型变量.html"><strong aria-hidden="true">3.4.</strong> 强类型变量</a></li><li class="chapter-item expanded "><a href="../Part2/整活：你好XXX.html"><strong aria-hidden="true">3.5.</strong> 整活：你好XXX</a></li><li class="chapter-item expanded "><a href="../Part2/代码块.html"><strong aria-hidden="true">3.6.</strong> 代码块</a></li><li class="chapter-item expanded "><a href="../Part2/分支结构.html"><strong aria-hidden="true">3.7.</strong> 分支结构</a></li><li class="chapter-item expanded "><a href="../Part2/作用域.html"><strong aria-hidden="true">3.8.</strong> 作用域</a></li><li class="chapter-item expanded "><a href="../Part2/整活：狐狸彩票.html"><strong aria-hidden="true">3.9.</strong> 整活：狐狸彩票</a></li><li class="chapter-item expanded "><a href="../Part2/循环.html"><strong aria-hidden="true">3.10.</strong> 循环</a></li><li class="chapter-item expanded "><a href="../Part2/数组.html"><strong aria-hidden="true">3.11.</strong> 数组</a></li><li class="chapter-item expanded "><a href="../Part2/遍历.html"><strong aria-hidden="true">3.12.</strong> 遍历</a></li><li class="chapter-item expanded "><a href="../Part2/循环控制.html"><strong aria-hidden="true">3.13.</strong> 循环控制</a></li></ol></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/Start.html"><strong aria-hidden="true">4.</strong> 认识面向对象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part-认识面向对象/方法.html"><strong aria-hidden="true">4.1.</strong> 方法</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/方法参数.html"><strong aria-hidden="true">4.2.</strong> 方法-参数</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/方法返回值.html"><strong aria-hidden="true">4.3.</strong> 方法-返回值</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/面向对象.html"><strong aria-hidden="true">4.4.</strong> 面向对象</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/类.html"><strong aria-hidden="true">4.5.</strong> 类</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/类成员.html"><strong aria-hidden="true">4.6.</strong> 类成员</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/引用类型与null.html"><strong aria-hidden="true">4.7.</strong> 引用类型与null</a></li><li class="chapter-item expanded "><a href="../Part-认识面向对象/日后再深入.html"><strong aria-hidden="true">4.8.</strong> 日后再深入</a></li></ol></li><li class="chapter-item expanded "><a href="../Part-引擎交互/Start.html"><strong aria-hidden="true">5.</strong> 引擎交互</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part-引擎交互/生命周期1.html"><strong aria-hidden="true">5.1.</strong> 生命周期1</a></li><li class="chapter-item expanded "><a href="../Part-引擎交互/生命周期2.html"><strong aria-hidden="true">5.2.</strong> 生命周期2</a></li><li class="chapter-item expanded "><a href="../Part-引擎交互/获取输入.html"><strong aria-hidden="true">5.3.</strong> 获取输入</a></li><li class="chapter-item expanded "><a href="../Part-引擎交互/线性输入.html"><strong aria-hidden="true">5.4.</strong> 线性输入</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> 整活：玩家移动</div></li><li class="chapter-item expanded "><a href="../Part-引擎交互/PackedScene实例化.html"><strong aria-hidden="true">5.6.</strong> PackedScene实例化</a></li><li class="chapter-item expanded "><a href="../Part-引擎交互/节点操作.html"><strong aria-hidden="true">5.7.</strong> 节点操作</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> 整活：Fire</div></li><li class="chapter-item expanded "><a href="../Part-引擎交互/信号.html"><strong aria-hidden="true">5.9.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../Part-引擎交互/组.html"><strong aria-hidden="true">5.10.</strong> 组</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.11.</strong> 整活：靶子</div></li><li class="chapter-item expanded "><a href="../Part-引擎交互/属性导出.html"><strong aria-hidden="true">5.12.</strong> 属性导出</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.13.</strong> 整活：分数</div></li></ol></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/Start.html"><strong aria-hidden="true">6.</strong> 深入面向对象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Part-深入面向对象/字典.html"><strong aria-hidden="true">6.1.</strong> 字典</a></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/脚本与类.html"><strong aria-hidden="true">6.2.</strong> 脚本与类</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> 整活：敌人</div></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/封装.html"><strong aria-hidden="true">6.4.</strong> 封装</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> 整活：玩家生命值</div></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/继承.html"><strong aria-hidden="true">6.6.</strong> 继承</a></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/节点与继承.html"><strong aria-hidden="true">6.7.</strong> 节点与继承</a></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/重写.html"><strong aria-hidden="true">6.8.</strong> 重写</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.9.</strong> 整活：多种敌人</div></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/多态.html" class="active"><strong aria-hidden="true">6.10.</strong> 多态</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.11.</strong> 整活：多种武器</div></li><li class="chapter-item expanded "><a href="../Part-深入面向对象/信号.html"><strong aria-hidden="true">6.12.</strong> 信号</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.13.</strong> 整活：更换武器的UI提示</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 进阶技巧</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> load</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> 枚举</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.3.</strong> 更多属性导出</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.4.</strong> 单例/自动加载</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.5.</strong> 唯一名称</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.6.</strong> 定义类</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.7.</strong> 静态</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.8.</strong> 字符串操作</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.9.</strong> 存档与读档</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.10.</strong> 函数式编程</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.11.</strong> yield</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 编程艺术</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> 优雅命名</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> 灵巧包装</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> 码中藏诗</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.4.</strong> 嵌套地狱</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.5.</strong> 连锁依赖</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.6.</strong> 抽象泥潭</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 自学指南</div></li><li class="chapter-item expanded "><a href="../待整理的内容.html"><strong aria-hidden="true">10.</strong> 还没整理的内容</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Reimenn/MyGDSciprtBook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="多态"><a class="header" href="#多态">多态</a></h1>
+<p>多态，就是说多种形态。</p>
+<p>在 CS 中，玩家可以购买的武器有很多种，但它们都是枪，都能开火和换弹，只是开火方式和换弹动作不同，这时我们就可以定义一个枪类，在其中实现开火和换弹方法，接下来为每种型号的枪创建一个枪类的子类，并重写开火和换弹方法以实现不同的武器效果。</p>
+<p>多态在这里的作用就是，不论玩家手持哪把武器，外部代码都可以按照枪类的调用方式调用不同武器的开火和换弹方法。代码中的体现是：<strong>子类实例可以存储到父类类型的变量中，并且可以访问父类中存在的成员</strong>。</p>
+<p>这里来看看代码例子：</p>
+<pre><code class="language-gdscript"># 这里是 枪 类
+class_name 枪
+
+func 开火():
+    pass
+
+func 换弹():
+    pass
+</code></pre>
+<pre><code class="language-gdscript"># 这里是 AK47 类
+extend 枪
+class_name AK47
+
+func 开火():
+    print(&quot;AK开火&quot;)
+</code></pre>
+<pre><code class="language-gdscript"># 这里是 AWP 类
+extend 枪
+class_name AWP
+
+func 开火():
+    print(&quot;AWP开火&quot;)
+</code></pre>
+<p>此时，当我们获取到一把 AWP 或 AK47 时，我们都可以把它们存放到 枪 类型的变量中，并对这把枪调用开火或换弹。</p>
+<p>多态的作用就是，我们只需要知道手上是一把枪就能开火和换弹，而不用关心枪的型号，至于具体开火和换弹的方式，则是由枪的子类自己决定。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Part-深入面向对象/重写.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../Part-深入面向对象/信号.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Part-深入面向对象/重写.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../Part-深入面向对象/信号.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../src/js/style.js"></script>
+
+
+    </div>
+    </body>
+</html>

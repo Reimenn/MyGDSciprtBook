@@ -41,9 +41,3 @@ def parse_parse_links(markdown: str) -> Dict[str, str]:
 if __name__ == '__main__':
     srcDir = os.path.abspath(os.path.join(__file__, "../../"))
     markdowns = load_markdown(srcDir)
-
-    for k, v in markdowns.items():
-        print(k, "=================")
-        links = parse_parse_links(v)
-        for k, v in links.items():
-            print(k, "   ->   ", v)

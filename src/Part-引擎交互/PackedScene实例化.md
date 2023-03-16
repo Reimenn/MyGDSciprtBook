@@ -24,7 +24,7 @@
 
 使用 `load("文件路径")` 来读取一个 Godot 资源，这里的文件路径使用 `res://` 开头表示项目中的资源。
 
-加入咱们把某个 PackedScene 保存到了项目中的 `物体` 文件夹，例如这样：
+假如咱们把某个 PackedScene 保存到了项目中的 `物体` 文件夹，例如这样：
 
 ![PackedScene](./images/packed_in_res.png)
 

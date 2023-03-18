@@ -692,8 +692,8 @@ var 玩家名称 := &quot;Rika&quot;    # 等于 玩家名称: String
 </code></pre>
 <h2 id="解读"><a class="header" href="#解读">解读</a></h2>
 <p>当按钮被点击时，就会发出 <code>pressed</code> 信号，而现在按钮的 <code>pressed</code> 信号连接了脚本中的 <code>_on_button_pressed</code> 方法，就意味着点击按钮就会执行这个方法，你可以在方法中先写一句 print 试试。</p>
-<h2 id="获取节点"><a class="header" href="#获取节点">获取节点</a></h2>
-<p>既然要获取输入内容，就要先找到输入框节点，获取节点的语法是这样的：</p>
+<h2 id="获取输入"><a class="header" href="#获取输入">获取输入</a></h2>
+<p>我们接下来需要获取玩家的输入，因此就要先找到输入框节点，获取节点的语法是这样的：</p>
 <pre><code>$&lt;节点路径&gt;
 </code></pre>
 <p>目前输入框的节点路径就是他的名字，所以咱可以在 <code>_on_button_pressed</code> 方法中写下：</p>
@@ -704,7 +704,10 @@ var 按钮: Button = $Button # 顺手把按钮也拿到
 <p>[!tip]</p>
 <p><code>LineEdit</code> 和 <code>Button</code> 是节点的类型，这些节点类型也是一种数据类型，可以用在强类型语法中。</p>
 </blockquote>
-<h2 id="获取节点属性"><a class="header" href="#获取节点属性">获取节点属性</a></h2>
+<blockquote>
+<p>[!tip]</p>
+<p><code>$</code> 语法本质上是一种简写，它的完整写法是一个方法调用，写做 <code>get_node(&quot;节点路径&quot;)</code>，不过还是 <code>$</code> 写法更简单实用。</p>
+</blockquote>
 <p>输入框节点的 text 属性表示输入的值，通过一个小数点的点 <code>.</code>，可以从节点中获取属性，所以：</p>
 <pre><code class="language-gdscript">var 输入值: String = 输入框.text
 </code></pre>
@@ -850,7 +853,7 @@ print(b)
 <p>看起来没有什么问题，应该会显示一个数字 6 吧？</p>
 <p>运行一下试试，不出意外的话就出现意外了，Godot 说 <code>print(b)</code> 是错误的，因为变量 b 不存在。</p>
 <p>这也很好理解，比如我们把变量 a 的初始值改成 -100，那个 if 就不会执行，自然就没有执行到 <code>var b = 6</code> 这一行，此时确实没有变量 b。</p>
-<p>这就涉及到变量作用域，也就是变量的生效范围。</p>
+<p>现在来了解下变量作用域，也就是变量的生效范围。</p>
 <p>规则只有一条：<strong>内层代码块可以访问外层代码块的变量，但反之不行</strong>。实际上，当内层代码执行完毕后，内层的变量会被删除。</p>
 <p>上例中，<code>var b = 6</code> 这一句话就是在 if 的内层作用域当中的，而在 if 之外的 <code>print(b)</code> 在位外层作用域，就不能访问内层的变量。</p>
 <p>现在修改代码：</p>
@@ -1061,6 +1064,7 @@ for 物品 in 背包:
     print(&quot;Hello&quot;)
 </code></pre>
 <p><code>range</code> 这个方法会根据括号里的数字产生一个数组，里面分别是 1、2、3、4...直到括号里的数字，但不包括那个数。</p>
+<p>不过 GDScript 还给咱们提供了一种简写方式，直接把 <code>range(123)</code> 写成 <code>123</code> 即可，例如和上面的 <code>range(50)</code> 效果相同的 for 可以写成 <code>for 当前次数 in 50:</code>。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="循环控制"><a class="header" href="#循环控制">循环控制</a></h1>
 <p>某些时候我们可能想要提前结束循环，比如实现功能：显示玩家背包中金币前面的内容。</p>
 <pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;, &quot;帽子&quot;]
@@ -1396,7 +1400,7 @@ Control ready
 <p>最常用的生命周期就这三个： <code>_ready</code> <code>_process</code> <code>_physics_process</code>。</p>
 <p>熟练掌握这三个生命周期即可实现绝大多数效果。</p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="获取输入"><a class="header" href="#获取输入">获取输入</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="获取输入-1"><a class="header" href="#获取输入-1">获取输入</a></h1>
 <p>Godot 给我们预先写好了很多类，这其中有一个 <code>Input</code> 类专门用于获取玩家的输入信息。</p>
 <p>先来介绍一个最简单的方法，<code>is_key_pressed</code>，它可以判断一个按键是否被按住，例如实现一个按 w 键向上移动：</p>
 <pre><code class="language-gdscript">func _physics_process(delta):
@@ -1533,7 +1537,7 @@ get_parent().add_child(新物体)
 <p>注意哈，本节是讲操作节点，而不是操作节点上的属性</p>
 </blockquote>
 <p>我们上一节见到了 <code>get_parent</code> 和 <code>add_child</code> 方法，这一节我们多认识几个操作节点的方法。</p>
-<h2 id="获取节点-1"><a class="header" href="#获取节点-1">获取节点</a></h2>
+<h2 id="获取节点"><a class="header" href="#获取节点">获取节点</a></h2>
 <p>我们之前见到过 <code>$xxx</code> 这种写法，其实有一个和它功能相同的方法，叫做 <code>get_node</code>，不过 <code>$</code> 符号用起来更方便，所以基本上很少会用 <code>get_node</code>。</p>
 <p><code>$节点名</code> 这种写法大家应该都认识，就是获取子物体中叫做 <code>节点名</code> 的那个节点。</p>
 <p>节点名可能包含一些奇怪的符号，直接把名字写在 $ 后面会出现语法错误，比如有个节点叫做 <code>外.币 巴-伯</code>，这时就可以使用字符串来表示节点名，变成 <code>$&quot;外.币 巴-伯&quot;</code> 即可。</p>

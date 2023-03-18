@@ -168,8 +168,8 @@
 </code></pre>
 <h2 id="解读"><a class="header" href="#解读">解读</a></h2>
 <p>当按钮被点击时，就会发出 <code>pressed</code> 信号，而现在按钮的 <code>pressed</code> 信号连接了脚本中的 <code>_on_button_pressed</code> 方法，就意味着点击按钮就会执行这个方法，你可以在方法中先写一句 print 试试。</p>
-<h2 id="获取节点"><a class="header" href="#获取节点">获取节点</a></h2>
-<p>既然要获取输入内容，就要先找到输入框节点，获取节点的语法是这样的：</p>
+<h2 id="获取输入"><a class="header" href="#获取输入">获取输入</a></h2>
+<p>我们接下来需要获取玩家的输入，因此就要先找到输入框节点，获取节点的语法是这样的：</p>
 <pre><code>$&lt;节点路径&gt;
 </code></pre>
 <p>目前输入框的节点路径就是他的名字，所以咱可以在 <code>_on_button_pressed</code> 方法中写下：</p>
@@ -180,7 +180,10 @@ var 按钮: Button = $Button # 顺手把按钮也拿到
 <p>[!tip]</p>
 <p><code>LineEdit</code> 和 <code>Button</code> 是节点的类型，这些节点类型也是一种数据类型，可以用在强类型语法中。</p>
 </blockquote>
-<h2 id="获取节点属性"><a class="header" href="#获取节点属性">获取节点属性</a></h2>
+<blockquote>
+<p>[!tip]</p>
+<p><code>$</code> 语法本质上是一种简写，它的完整写法是一个方法调用，写做 <code>get_node(&quot;节点路径&quot;)</code>，不过还是 <code>$</code> 写法更简单实用。</p>
+</blockquote>
 <p>输入框节点的 text 属性表示输入的值，通过一个小数点的点 <code>.</code>，可以从节点中获取属性，所以：</p>
 <pre><code class="language-gdscript">var 输入值: String = 输入框.text
 </code></pre>

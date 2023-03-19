@@ -1,0 +1,22 @@
+#content blockquote {
+    background: none;
+    border: none;
+    border-left: 0.4em solid var(--quote-border);
+}
+#content blockquote p {
+    opacity: 0.6;
+}
+#content p code.hljs {
+    font-size: 100%;
+    padding: 0 0.1em !important;
+    
+    border: solid 1px #88888866;
+}
+#content .admonition > div:not(.admonition-title) > p,
+#content main > p{
+    text-indent: 2em;
+}
+
+main p img{
+    box-shadow: 0 0 9px #000;
+}

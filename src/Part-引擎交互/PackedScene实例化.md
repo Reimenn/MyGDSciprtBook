@@ -47,3 +47,9 @@ get_parent().add_child(新物体)
 > instantiate() 只是把节点创建来出来，但还没有添加到场景中，所以是看不到的。
 >
 > 配合 add_child 才能真正创建一个新物体。
+
+> [!tip]
+>
+> PackedScene 中的节点不能与外部的节点存在信号连接，比如 PackedScene 中某个按钮的信号不能连接到 PackedScene 外面的脚本上，毕竟在 Godot 眼中，她不知道这个 PackedScene 被创建出来的时候外面的脚本是否存在。
+>
+> 但是 PackedScene 内部的信号连接是没有问题的。

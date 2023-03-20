@@ -1411,7 +1411,7 @@ Control ready
 <p>根据 <code>is_key_pressed</code> 这个名字可以看出来，他是判断按键是否被按下的，也就是说这个方法的返回值是布尔类型，当按键被按下时返回 true，没按下时返回 false。它的参数是一个 KeyCode 类型的枚举，什么是枚举可以先不用考虑，总之这个参数应该是你想检测的按键，而 Godot 定义了一堆 <code>KEY_???</code> 这样的变量来表示每一个按键，上面代码中使用的 <code>KEY_W</code> 就表示了键盘上的 W 键。</p>
 <p><code>is_key_pressed</code> 结合 <code>if</code> 语句，就实现了<strong>当玩家按下某个键时执行一段代码</strong>这样的逻辑，这里当按下 W 时就会执行向上移动，也就是 <code>position.y -= 1000 * delta</code>。</p>
 <blockquote>
-<p>关于 position 和 delta 分别在 <a href="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92//Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.html#delta">生命周期2</a> 和 <a href="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92//Part-%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E7%B1%BB%E6%88%90%E5%91%98.html#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E8%BF%98%E6%98%AF%E5%AF%B9%E8%B1%A1">类成员</a> 小节讲过</p>
+<p>关于 position 和 delta 分别在 <a href="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92//Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.html#delta">生命周期2</a> 和 <a href="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92//Part-%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E7%B1%BB%E6%88%90%E5%91%98.html#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E8%BF%98%E6%98%AF%E5%AF%B9%E8%B1%A1">类成员</a> 小节讲过。</p>
 </blockquote>
 <h2 id="输入映射"><a class="header" href="#输入映射">输入映射</a></h2>
 <p>大部分游戏都支持多种输入方式，例如一般的主机游戏都支持键鼠和手柄，虽然我们可以使用 or 运算同时判断多个按键输入，但这必定会很麻烦。</p>
@@ -1485,11 +1485,15 @@ func _process(delta):
     var 鼠标方向 = get_global_mouse_position() - global_position
     rotation = 鼠标方向.angle()
 </code></pre>
-<p>其中 _physics_process 方法中先获取了玩家移动的按键输入，然后若该输入不为 0 时调用 move_and_collide 方法进行移动。</p>
-<p>_process 方法中使用 get_global_mouse_position() 方法获取鼠标的坐标，并减去当前玩家的全局坐标，这样就得到了一个从玩家指向鼠标的方向向量，并存放到 鼠标方向 变量中。随后将这个方向的角度赋值给玩家的旋转角度（rotation 变量）</p>
+<p>其中 <code>_physics_process</code> 方法中先获取了玩家移动的按键输入，并保存到一个二维向量中，若该向量的长度为 0，则表示玩家没有输入，所以当输入不为 0 时调用 <code>move_and_collide</code> 方法进行移动。</p>
+<p><code>_process</code> 方法中使用 <code>get_global_mouse_position</code> 方法获取鼠标的坐标，并减去当前玩家的全局坐标，这样就得到了一个从玩家指向鼠标的方向向量，并存放到 <code>鼠标方向</code> 变量中。随后将这个方向的角度赋值给玩家的旋转角度（rotation 变量）。</p>
 <blockquote>
-<p>[!warning]</p>
-<p>整活章节涉及到很多引擎界面等东西的操作，用图文教程的形式教学实在太麻烦，在找到更好的教学形式之前暂时将暂停整活章节的编写。</p>
+<p>[!tip]</p>
+<p>移动行为涉及到障碍物碰撞等物理效果，所以移动逻辑被放在了 <code>_physics_process</code> 方法中，而在本游戏中的玩家旋转行为不涉及物理效果，所以放在了 <code>_process</code> 方法中，当你在制作自己的游戏时需要根据游戏需求选择不同的生命周期方法。</p>
+</blockquote>
+<blockquote>
+<p>[!tip]</p>
+<p>思考一个小问题，现在的玩家垂直向下的移动速度和向右下方斜向移动的速度相同吗？尝试使用 <code>print(移动输入)</code> 看一看吧。</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packedscene实例化"><a class="header" href="#packedscene实例化">PackedScene实例化</a></h1>
 <p>某些物品会在游戏中反复出现，以玩家发射的炮弹举例，炮弹可以被反复创建，且每颗炮弹都几乎相同，那么我们就可以制作一个炮弹模板，在玩家开火时创建它。</p>
@@ -1576,12 +1580,13 @@ print(position)
 <p>某些生命周期或信号事件中使用 free 会直接报错，因为 Godot 内部有一种节点锁定机制。</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="整活fire"><a class="header" href="#整活fire">整活：Fire</a></h1>
-<blockquote>
-<p>[!warning] 编写中</p>
-</blockquote>
 <p>本节实现玩家开火效果。</p>
-<p>首先需要创建一个子弹 PackedScene：</p>
+<p>首先需要创建一个子弹的 PackedScene，由于玩家的子弹可以与其他物体产生碰撞，因此我们使用 Area2D 作为子弹的根结点：</p>
 <p><img src="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/./images/bullet.png" alt="子弹PackedScene" /></p>
+<blockquote>
+<p>最后那个 Timer 节点在本节最后讲解</p>
+</blockquote>
+<p>子弹具有&quot;飞行&quot;能力，但飞行的方向是不固定的，需要根据玩家开火时的朝向确定，所以我们在子弹的代码中定义一个 <code>移动速度</code> 属性，当玩家发射子弹时由玩家来对这个属性赋值。</p>
 <p>子弹的代码如下：</p>
 <pre><code class="language-gdscript">extends Area2D
 class_name 子弹类
@@ -1591,10 +1596,11 @@ var 移动速度:Vector2
 func _physics_process(delta):
     position += 移动速度 * delta
 </code></pre>
-<p>玩家的创建代码如下：</p>
+<p>对应的，再给之前的玩家移动脚本添加上射击相关的逻辑：</p>
 <pre><code class="language-gdscript">var 子弹: PackedScene
 
 func _read():
+	# 获取子弹的 PackedScene
     子弹 = load(&quot;res://子弹/子弹.tscn&quot;)
 
 func _process(delta):
@@ -1607,13 +1613,25 @@ func _process(delta):
 		创建的子弹.global_position = global_position
 		创建的子弹.rotation = 鼠标方向.angle()
 </code></pre>
+<blockquote>
+<p><code>鼠标方向.normalized()</code> 可以把向量归一化，以此来去除鼠标位置对子弹速度的影响。</p>
+</blockquote>
 <h2 id="子弹清理"><a class="header" href="#子弹清理">子弹清理</a></h2>
-<p>定时器节点如下：</p>
+<blockquote>
+<p>[!tip]</p>
+<p>涉及到信号指示，可以先阅读 <a href="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/./%E4%BF%A1%E5%8F%B7.html">信号</a> 章节。</p>
+</blockquote>
+<p>如果你发射了太多子弹，例如100000发，当子弹飞出屏幕后，即便我们再也见不到它，但它仍然在我们的视野之外飞行，这会对电脑产生不小的压力。</p>
+<p>因此我们需要删除掉一些&quot;没有用&quot;的子弹，这里我给子弹添加了一个定时器节点（Timer 节点），它将在子弹被创建的 10 秒后触发 timeout 信号：</p>
 <p><img src="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/./images/bullet_timer.png" alt="定时器属性" /></p>
-<p>连接 timeout 信号。</p>
+<p>将 timeout 信号连接到子弹脚本中即可实现定时删除：</p>
 <pre><code class="language-gdscript">func _on_timer_timeout():
     queue_free()
 </code></pre>
+<blockquote>
+<p>[!tip]</p>
+<p>根据时间清理子弹不是唯一的手段，例如还可以根据子弹的位置来清理，或是子弹的移动距离等，你可以试着自己实现下其他的清理方式。</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="信号"><a class="header" href="#信号">信号</a></h1>
 <p>有一种编程方式叫做“事件驱动式编程”，大意就是说当发生某件事的时候就执行一段代码，以此来实现整个程序的功能。其中的<strong>事件</strong>在 Godot 中被称作<strong>信号</strong>。</p>
 <p>一个信号可以连接到很多方法，当信号触发时则会执行这些方法。</p>
@@ -1680,20 +1698,21 @@ print($Zombie.is_in_group(&quot;怪物&quot;)) # 输出 true
 </code></pre>
 <p>还有个 <code>get_groups</code> 方法可以获取节点的全部组，考虑到一般用不到，此处不再展示。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="整活靶子"><a class="header" href="#整活靶子">整活：靶子</a></h1>
-<blockquote>
-<p>[!warning] 编写中</p>
-</blockquote>
-<p>靶子：</p>
+<p>本节来添加靶子，这是一个可以被子弹攻击到的物体，并且会阻碍玩家移动，因此使用 StaticBody2D 作为靶子的根结点：</p>
 <p><img src="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/./images/target.png" alt="靶子节点" /></p>
-<p>靶子节点的代码：</p>
-<pre><code class="language-gdscript">@export var 分数:int = 1
-</code></pre>
-<p>子弹添加方法：</p>
+<p>靶子的唯一用途就是被子弹攻击，因此靶子自身不用编写任何方法。</p>
+<p>要做到子弹攻击靶子，我们需要修改子弹脚本，利用子弹根结点 Area2D 的 <code>body_entered</code> 信号，我们可以在子弹碰到某个物理节点（例如 StaticBody2D）时做一些处理。</p>
+<p>连接子弹根结点的 <code>body_entered</code> 信号到子弹脚本上，并且写下如下代码：</p>
 <pre><code class="language-gdscript">func _on_body_entered(body:PhysicsBody2D):
     if body.is_in_group(&quot;靶子&quot;):
         body.queue_free()
         queue_free()
 </code></pre>
+<p>其中的第一个 if 判断碰到的节点是否在 <code>靶子</code> 组中，所以不要忘了给靶子节点添加到这个组中。if 里面的两行代码就分别是删除靶子和子弹。</p>
+<blockquote>
+<p>[!tip]</p>
+<p>我们也可以选择在靶子上编写逻辑，进行&quot;靶子是否碰到子弹&quot;的判断，但一般我们的认知应该是&quot;子弹攻击靶子&quot;，所以我习惯把这个判定放到子弹身上。</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="属性导出"><a class="header" href="#属性导出">属性导出</a></h1>
 <p>选中一个节点后，我们可以在屏幕右边看到好多节点的属性，其实我们也可以在这里添加自己的属性。</p>
 <p>给咱们脚本中的属性变量加上 <code>@export</code> 前缀即可：</p>
@@ -1716,18 +1735,28 @@ func _ready():
 <p><code>@export var 哈</code> 这样的属性是不能导出的，因为 Godot 不知道这个变量是个什么类型，也就不知道应该在面板上显示什么样的输入框，所以这种属性变量必须使用强类型指定类型或指定上初始值。</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="整活分数"><a class="header" href="#整活分数">整活：分数</a></h1>
-<blockquote>
-<p>[!warning] 编写中</p>
-</blockquote>
+<p>我们可以让游戏更有趣一些，让玩家在击中靶子时增加一些分数，且不同的靶子分数不同。</p>
+<p>首先实现一点：不同靶子分数不同。现在给靶子添加一个脚本，脚本中仅需要一句代码：</p>
+<pre><code class="language-gdscript">@export var 分数: int = 1
+</code></pre>
+<p>这样，当我们创建多个靶子时（建议用 PackedScene），即可在引擎中任意修改某一个靶子的分数了。</p>
+<p>通常在一个完整的游戏中会有单独的部分存储全局信息，但我们的游戏比较简单，我就将分数变量存放到玩家实例上了，也就是给玩家添加一个属性：</p>
+<pre><code class="language-gdscript">var 分数: int = 0
+</code></pre>
+<p>为了显示分数，我们在创建几个节点来组成 ui 界面：</p>
 <p><img src="Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/./images/score_ui.png" alt="分数UI" /></p>
+<p>把上述 ui 节点添加到场景中后，接着修改子弹击中靶子后的代码：</p>
 <pre><code class="language-gdscript">if body.is_in_group(&quot;靶子&quot;):
-
+    # 玩家的现有分数加上靶子的价值分数
     $&quot;/root/Game/玩家&quot;.分数 += body.分数
+    
+    # 更新 ui 界面
     $&quot;/root/Game/UI/分数&quot;.text = &quot;得分：&quot; + str($&quot;/root/Game/玩家&quot;.分数)
 
     body.queue_free()
     queue_free()
 </code></pre>
+<p>完成</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="深入面向对象"><a class="header" href="#深入面向对象">深入面向对象</a></h1>
 <p>别看我们目前学的东西还不多，但其实已经可以实现很多的游戏效果了。</p>
 <p>在学习这一章之前，请确保自己已经熟练掌握了前面的章节，并且建议尝试写一些小游戏。</p>

@@ -158,7 +158,7 @@
 <p>根据 <code>is_key_pressed</code> 这个名字可以看出来，他是判断按键是否被按下的，也就是说这个方法的返回值是布尔类型，当按键被按下时返回 true，没按下时返回 false。它的参数是一个 KeyCode 类型的枚举，什么是枚举可以先不用考虑，总之这个参数应该是你想检测的按键，而 Godot 定义了一堆 <code>KEY_???</code> 这样的变量来表示每一个按键，上面代码中使用的 <code>KEY_W</code> 就表示了键盘上的 W 键。</p>
 <p><code>is_key_pressed</code> 结合 <code>if</code> 语句，就实现了<strong>当玩家按下某个键时执行一段代码</strong>这样的逻辑，这里当按下 W 时就会执行向上移动，也就是 <code>position.y -= 1000 * delta</code>。</p>
 <blockquote>
-<p>关于 position 和 delta 分别在 <a href="/Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.html#delta">生命周期2</a> 和 <a href="/Part-%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E7%B1%BB%E6%88%90%E5%91%98.html#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E8%BF%98%E6%98%AF%E5%AF%B9%E8%B1%A1">类成员</a> 小节讲过</p>
+<p>关于 position 和 delta 分别在 <a href="/Part-%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.html#delta">生命周期2</a> 和 <a href="/Part-%E8%AE%A4%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E7%B1%BB%E6%88%90%E5%91%98.html#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E8%BF%98%E6%98%AF%E5%AF%B9%E8%B1%A1">类成员</a> 小节讲过。</p>
 </blockquote>
 <h2 id="输入映射"><a class="header" href="#输入映射">输入映射</a></h2>
 <p>大部分游戏都支持多种输入方式，例如一般的主机游戏都支持键鼠和手柄，虽然我们可以使用 or 运算同时判断多个按键输入，但这必定会很麻烦。</p>

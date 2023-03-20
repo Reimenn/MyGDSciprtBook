@@ -181,11 +181,15 @@ func _process(delta):
     var 鼠标方向 = get_global_mouse_position() - global_position
     rotation = 鼠标方向.angle()
 </code></pre>
-<p>其中 _physics_process 方法中先获取了玩家移动的按键输入，然后若该输入不为 0 时调用 move_and_collide 方法进行移动。</p>
-<p>_process 方法中使用 get_global_mouse_position() 方法获取鼠标的坐标，并减去当前玩家的全局坐标，这样就得到了一个从玩家指向鼠标的方向向量，并存放到 鼠标方向 变量中。随后将这个方向的角度赋值给玩家的旋转角度（rotation 变量）</p>
+<p>其中 <code>_physics_process</code> 方法中先获取了玩家移动的按键输入，并保存到一个二维向量中，若该向量的长度为 0，则表示玩家没有输入，所以当输入不为 0 时调用 <code>move_and_collide</code> 方法进行移动。</p>
+<p><code>_process</code> 方法中使用 <code>get_global_mouse_position</code> 方法获取鼠标的坐标，并减去当前玩家的全局坐标，这样就得到了一个从玩家指向鼠标的方向向量，并存放到 <code>鼠标方向</code> 变量中。随后将这个方向的角度赋值给玩家的旋转角度（rotation 变量）。</p>
 <blockquote>
-<p>[!warning]</p>
-<p>整活章节涉及到很多引擎界面等东西的操作，用图文教程的形式教学实在太麻烦，在找到更好的教学形式之前暂时将暂停整活章节的编写。</p>
+<p>[!tip]</p>
+<p>移动行为涉及到障碍物碰撞等物理效果，所以移动逻辑被放在了 <code>_physics_process</code> 方法中，而在本游戏中的玩家旋转行为不涉及物理效果，所以放在了 <code>_process</code> 方法中，当你在制作自己的游戏时需要根据游戏需求选择不同的生命周期方法。</p>
+</blockquote>
+<blockquote>
+<p>[!tip]</p>
+<p>思考一个小问题，现在的玩家垂直向下的移动速度和向右下方斜向移动的速度相同吗？尝试使用 <code>print(移动输入)</code> 看一看吧。</p>
 </blockquote>
 
                     </main>

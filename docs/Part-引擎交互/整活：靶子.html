@@ -148,20 +148,21 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="整活靶子"><a class="header" href="#整活靶子">整活：靶子</a></h1>
-<blockquote>
-<p>[!warning] 编写中</p>
-</blockquote>
-<p>靶子：</p>
+<p>本节来添加靶子，这是一个可以被子弹攻击到的物体，并且会阻碍玩家移动，因此使用 StaticBody2D 作为靶子的根结点：</p>
 <p><img src="./images/target.png" alt="靶子节点" /></p>
-<p>靶子节点的代码：</p>
-<pre><code class="language-gdscript">@export var 分数:int = 1
-</code></pre>
-<p>子弹添加方法：</p>
+<p>靶子的唯一用途就是被子弹攻击，因此靶子自身不用编写任何方法。</p>
+<p>要做到子弹攻击靶子，我们需要修改子弹脚本，利用子弹根结点 Area2D 的 <code>body_entered</code> 信号，我们可以在子弹碰到某个物理节点（例如 StaticBody2D）时做一些处理。</p>
+<p>连接子弹根结点的 <code>body_entered</code> 信号到子弹脚本上，并且写下如下代码：</p>
 <pre><code class="language-gdscript">func _on_body_entered(body:PhysicsBody2D):
     if body.is_in_group(&quot;靶子&quot;):
         body.queue_free()
         queue_free()
 </code></pre>
+<p>其中的第一个 if 判断碰到的节点是否在 <code>靶子</code> 组中，所以不要忘了给靶子节点添加到这个组中。if 里面的两行代码就分别是删除靶子和子弹。</p>
+<blockquote>
+<p>[!tip]</p>
+<p>我们也可以选择在靶子上编写逻辑，进行&quot;靶子是否碰到子弹&quot;的判断，但一般我们的认知应该是&quot;子弹攻击靶子&quot;，所以我习惯把这个判定放到子弹身上。</p>
+</blockquote>
 
                     </main>
 

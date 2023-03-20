@@ -148,18 +148,28 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="整活分数"><a class="header" href="#整活分数">整活：分数</a></h1>
-<blockquote>
-<p>[!warning] 编写中</p>
-</blockquote>
+<p>我们可以让游戏更有趣一些，让玩家在击中靶子时增加一些分数，且不同的靶子分数不同。</p>
+<p>首先实现一点：不同靶子分数不同。现在给靶子添加一个脚本，脚本中仅需要一句代码：</p>
+<pre><code class="language-gdscript">@export var 分数: int = 1
+</code></pre>
+<p>这样，当我们创建多个靶子时（建议用 PackedScene），即可在引擎中任意修改某一个靶子的分数了。</p>
+<p>通常在一个完整的游戏中会有单独的部分存储全局信息，但我们的游戏比较简单，我就将分数变量存放到玩家实例上了，也就是给玩家添加一个属性：</p>
+<pre><code class="language-gdscript">var 分数: int = 0
+</code></pre>
+<p>为了显示分数，我们在创建几个节点来组成 ui 界面：</p>
 <p><img src="./images/score_ui.png" alt="分数UI" /></p>
+<p>把上述 ui 节点添加到场景中后，接着修改子弹击中靶子后的代码：</p>
 <pre><code class="language-gdscript">if body.is_in_group(&quot;靶子&quot;):
-
+    # 玩家的现有分数加上靶子的价值分数
     $&quot;/root/Game/玩家&quot;.分数 += body.分数
+    
+    # 更新 ui 界面
     $&quot;/root/Game/UI/分数&quot;.text = &quot;得分：&quot; + str($&quot;/root/Game/玩家&quot;.分数)
 
     body.queue_free()
     queue_free()
 </code></pre>
+<p>完成</p>
 
                     </main>
 

@@ -27,7 +27,7 @@ func _physics_process(delta):
 ```gdscript
 var 子弹: PackedScene
 
-func _read():
+func _ready():
 	# 获取子弹的 PackedScene
     子弹 = load("res://子弹/子弹.tscn")
 

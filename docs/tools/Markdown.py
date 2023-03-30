@@ -41,3 +41,9 @@ def parse_parse_links(markdown: str) -> Dict[str, str]:
 if __name__ == '__main__':
     srcDir = os.path.abspath(os.path.join(__file__, "../../"))
     markdowns = load_markdown(srcDir)
+    count = 0
+    for m, v in markdowns.items():
+        for i in v:
+            if ord(i) > 255:
+                count += 1
+    print(count)

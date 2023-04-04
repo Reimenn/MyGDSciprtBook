@@ -28,18 +28,18 @@ func _physics_process(delta):
 var 子弹: PackedScene
 
 func _ready():
-	# 获取子弹的 PackedScene
+    # 获取子弹的 PackedScene
     子弹 = load("res://子弹/子弹.tscn")
 
 func _process(delta):
-	var 鼠标方向 = get_global_mouse_position() - global_position
-	rotation = 鼠标方向.angle()
-	if Input.is_action_just_pressed("攻击"):
-		var 创建的子弹:子弹类 = 子弹.instantiate()
-		创建的子弹.移动速度 = 鼠标方向.normalized() * 1000
-		$"/root/".add_child(创建的子弹)
-		创建的子弹.global_position = global_position
-		创建的子弹.rotation = 鼠标方向.angle()
+    var 鼠标方向 = get_global_mouse_position() - global_position
+    rotation = 鼠标方向.angle()
+    if Input.is_action_just_pressed("攻击"):
+        var 创建的子弹:子弹类 = 子弹.instantiate()
+        创建的子弹.移动速度 = 鼠标方向.normalized() * 1000
+        $"/root/".add_child(创建的子弹)
+        创建的子弹.global_position = global_position
+        创建的子弹.rotation = 鼠标方向.angle()
 ```
 
 > `鼠标方向.normalized()` 可以把向量归一化，以此来去除鼠标位置对子弹速度的影响。

@@ -174,13 +174,14 @@ while 下标 &lt; len(背包):
 <pre><code class="language-gdscript">for &lt;元素变量名&gt; in &lt;遍历目标&gt;:
     &lt;代码块&gt;
 </code></pre>
-<p>这个东西本质上还是个循环，循环次数就是遍历目标的长度，每一轮循环中，都将从遍历目标里取出一个元素放到元素变量中。</p>
+<p>这个东西本质上还是个循环，循环次数就是遍历目标的长度，每一轮循环中，都将从<strong>遍历目标</strong>里取出一个元素放到<strong>元素变量</strong>中。</p>
 <p>把之前的 while 换成 <code>for</code>，运行结果不变，代码如下：</p>
 <pre><code class="language-gdscript">var 背包 = [&quot;水瓶&quot;, &quot;钥匙&quot;, &quot;金币&quot;]
 print(&quot;背包中有：&quot;)
 for 物品 in 背包:
     print(物品)
 </code></pre>
+<p>for 后面的 <code>物品</code> 变量是自动创建的，不需要我们使用 var 声明。</p>
 <h2 id="range"><a class="header" href="#range">range</a></h2>
 <p>有时候我们想直接指定循环次数，例如显示 50 个 hello，这样直接用一个变量和 while 也可以搞定，但我们可以结合 <code>range</code> 方法和 <code>for</code> 来实现同样的效果：</p>
 <pre><code class="language-gdscript">for 当前次数 in range(50):

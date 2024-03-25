@@ -1296,7 +1296,7 @@ func 输出拼接结果():
 <p>还是说手机，手机能够开机、打电话、玩游戏，这些手机能干的事情，就是手机的方法。</p>
 </blockquote>
 <h2 id="对象的属性还是对象"><a class="header" href="#对象的属性还是对象">对象的属性还是对象</a></h2>
-<p>如果我们想让输入框的位置产生变化，那我们可以访问它的 <code>position</code> 属性，这个属性表示的是坐标，但坐标肯定不是一个数字，所以 <code>position</code> 的类型是 <code>vector2</code>，这个 <code>vector2</code> 也是一个类，而 <code>position</code> 属性存放的则是一个 vector2 <strong>实例</strong>，他有两个属性：<code>x</code> 和 <code>y</code>，如果我们想让输入框向左下方移动一点，则可以：</p>
+<p>如果我们想让输入框的位置产生变化，那我们可以访问它的 <code>position</code> 属性，这个属性表示的是坐标，但坐标肯定不是一个数字，所以 <code>position</code> 的类型是 <code>vector2</code>，这个 <code>vector2</code> 也是一个类，而 <code>position</code> 属性存放的则是一个 vector2 <strong>实例</strong>，他有两个属性：<code>x</code> 和 <code>y</code>，如果我们想让输入框向右下方移动一点，则可以：</p>
 <pre><code class="language-gdscript">$LineEdit.position.x += 100
 $LineEdit.position.y += 100
 </code></pre>

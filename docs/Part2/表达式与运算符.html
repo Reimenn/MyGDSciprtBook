@@ -157,7 +157,7 @@
 <li>赋值表达式</li>
 </ul>
 <h2 id="算术表达式"><a class="header" href="#算术表达式">算术表达式</a></h2>
-<p>顾名思义，算是表达式就是指数学运算的式子，例如 <code>5 + 2</code> <code>100 * 0.5</code> 等，运算符有这些：</p>
+<p>顾名思义，算术表达式就是指数学运算的式子，例如 <code>5 + 2</code> <code>100 * 0.5</code> 等，运算符有这些：</p>
 <ul>
 <li><code>+</code> 加</li>
 <li><code>-</code> 减</li>
@@ -293,22 +293,6 @@ print(a + 10)
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

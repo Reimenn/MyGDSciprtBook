@@ -214,7 +214,7 @@ else:
 <hr />
 <blockquote>
 <p>[!tip] 条件判断可以避免重复</p>
-<p>想想我们的条件中提到的是<strong>15-19</strong>个任务显示<strong>马上就完成了</strong>，但为什么我们的 if 和 elif 后面之判断了 <code>任务完成数 &gt;= 15</code> 呢？</p>
+<p>想想我们的条件中提到的是<strong>15-19</strong>个任务显示<strong>马上就完成了</strong>，但为什么我们的 if 和 elif 后面只判断了 <code>任务完成数 &gt;= 15</code> 呢？</p>
 <p>这里就要想一下 else 和 elif 的一个特点：<strong>只有在上一个 if 或 elif 的条件不满足时才判断。</strong></p>
 <p>由于第一个 if 已经判断了 <code>任务完成数 &gt;= 20</code> 的情况，那么下面的所有 elif 和 else 中的<code>任务完成数</code>就不可能包含 20，所以我们就只判断 <code>&gt;= 15</code> 即可。</p>
 </blockquote>
